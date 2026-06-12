@@ -1197,7 +1197,7 @@ select:focus-visible {
 
 .survive-word {
   position: relative;
-  color: #dc2626;
+  color: #c38480;
 }
 
 .survive-word::before,
@@ -1206,18 +1206,20 @@ select:focus-visible {
   top: 50%;
   left: -5%;
   width: 110%;
-  height: 2px;
+  height: 3px;
   border-radius: 999px;
-  background: #dc2626;
+  background: #c38480;
   content: "";
 }
 
 .survive-word::before {
-  transform: rotate(10deg);
+  top: 54%;
+  transform: rotate(9deg);
 }
 
 .survive-word::after {
-  transform: rotate(-10deg);
+  top: 47%;
+  transform: rotate(-9deg);
 }
 
 .thrive-word {
