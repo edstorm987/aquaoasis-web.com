@@ -1,0 +1,25 @@
+{
+  "name": "aquaoasis-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_TEST_WASM_DIR=$PWD/node_modules/@next/swc-wasm-nodejs next dev --webpack",
+    "build": "NEXT_TEST_WASM_DIR=$PWD/node_modules/@next/swc-wasm-nodejs next build --webpack",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@next/swc-wasm-nodejs": "^16.2.9",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "latest"
+  }
+}

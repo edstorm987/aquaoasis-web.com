@@ -1,0 +1,13 @@
+.next/
+node_modules/
+
+.DS_Store
+*.log
+
+.env
+.env.local
+.env.*.local
+
+out/
+dist/
+coverage/
