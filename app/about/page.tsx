@@ -1,49 +1,75 @@
-import { BottomCta } from "@/components/BottomCta";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
+import { MaintenanceFooter } from "@/components/MaintenanceFooter";
+import { MaintenanceHeader } from "@/components/MaintenanceHeader";
+import { VslSection } from "@/components/VslSection";
 
 export default function AboutPage() {
   return (
     <>
-      <SiteHeader />
-      <main>
-        <section className="page-hero">
-          <div className="container narrow reveal">
-            <p className="eyebrow">About AquaOasis-Web</p>
-            <h1>Premium websites without the subscription trap.</h1>
-            <p>
-              AquaOasis-Web exists for small businesses and creators who need a
-              serious online presence without agency theatre, bloated retainers,
-              or confusing tech language.
-            </p>
-          </div>
-        </section>
-
-        <section className="section muted-band">
-          <div className="container two-column">
-            <div className="reveal">
-              <p className="eyebrow">How we work</p>
-              <h2>Clear foundations first. Beautiful website second.</h2>
+      <MaintenanceHeader />
+      <main className="maintenance-page">
+        <section className="maintenance-shell" aria-labelledby="about-title">
+          <div className="container about-maintenance-grid">
+            <div className="about-vsl-card reveal">
+              <VslSection />
             </div>
-            <div className="rich-copy reveal reveal-delay-1">
+            <div className="privacy-card reveal">
+              <p className="eyebrow">About AquaOasis-Web</p>
+              <h1 id="about-title">About AquaOasis-Web</h1>
               <p>
-                We start with visibility: Google profile, contact routes,
-                social consistency, and a fast temporary page if needed. Then we
-                build the final website around what customers need to see,
-                trust, and do.
+                AquaOasis-Web was founded by Edward Hallam from Felixstowe,
+                Suffolk. Born in Ipswich, Edward started building websites as a
+                high school project for family, friends, and school work before
+                turning it into a practical service for people who know they
+                need to get online but do not know where to start.
               </p>
               <p>
-                If a project needs advanced software, custom systems, ads, or
-                complex growth infrastructure, we route it to Milesymedia so
-                the client gets the right solution instead of a forced one.
+                The idea came from first-hand experience. Edward saw local
+                businesses get hit hard when diaries were lost, appointments
+                were missed, and physical routes to customers suddenly stopped.
+                Covid made the problem impossible to ignore: businesses that
+                relied only on paper, walk-ins, and word of mouth were left
+                exposed. AquaOasis-Web exists to help protect businesses from
+                that kind of risk.
+              </p>
+              <p>
+                Edward made plenty of mistakes early on, then sought
+                professional training, completed courses, gained certification,
+                and kept improving the way websites are built and delivered. He
+                started with platforms such as Squarespace and WordPress, but
+                found the limits frustrating: subscriptions, platform lock-in,
+                less control, and less ownership for the client.
+              </p>
+              <p>
+                Today AquaOasis-Web uses code-first builds so your website can
+                be owned properly, controlled properly, and kept free from
+                unnecessary monthly platform subscriptions. If you want help
+                with amendments later, we can talk about it, but the goal is
+                simple: make your online foundation yours.
+              </p>
+              <p>
+                We know how frustrating it can be when website people disappear,
+                take months to reply, or turn simple updates into a headache.
+                Business owners should not have to become web experts just to
+                look professional online. That is what we are here for.
+              </p>
+              <p>
+                Could you use AI to build a website yourself? Yes. But how do
+                you know it will perform? AquaOasis-Web does not build websites
+                just for show. We build foundations designed to help people find
+                you, trust you, and enquire. You can even try building with AI
+                first, then bring it to us for an audit. We will show you the
+                gaps and what to fix.
+              </p>
+              <p>
+                This is the future, and AquaOasis-Web is here to help small
+                businesses adapt without confusion, lock-in, or unnecessary
+                pressure.
               </p>
             </div>
           </div>
         </section>
-
-        <BottomCta />
       </main>
-      <SiteFooter />
+      <MaintenanceFooter />
     </>
   );
 }

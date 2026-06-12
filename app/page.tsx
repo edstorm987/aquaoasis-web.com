@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <MaintenanceHeader />
-      <main className="maintenance-page">
+      <main className="maintenance-page maintenance-home-page">
         <section className="maintenance-shell" aria-labelledby="maintenance-title">
           <div className="container maintenance-grid">
             <div className="maintenance-copy reveal">
@@ -18,7 +18,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="callback-stack" id="callback">
+            <div className="maintenance-choice-grid" aria-label="Choose your next step">
               <div className="maintenance-info-card reveal reveal-delay-1">
                 <p className="eyebrow">What we do</p>
                 <h2>Get found online, made simple.</h2>
@@ -40,6 +40,7 @@ export default function Home() {
                   Enter the Digital Age <span aria-hidden="true">🚀</span>
                 </a>
               </div>
+
               <div className="lead-magnet-card reveal reveal-delay-2">
                 <p className="eyebrow">Already online?</p>
                 <h3>Your website can do more than you think.</h3>
@@ -68,10 +69,13 @@ export default function Home() {
                 <a className="survive-thrive-cta lead-magnet-cta" href="#callback-form">
                   <span className="survive-word">Survive</span>
                   <span className="thrive-word">
-                    Thrive <span aria-hidden="true">🌱</span>
+                    Thrive. <span aria-hidden="true">🌱</span>
                   </span>
                 </a>
               </div>
+            </div>
+
+            <div className="callback-stack" id="callback">
               <CallbackForm compact />
             </div>
           </div>

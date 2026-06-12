@@ -45,7 +45,15 @@ export function ContactForm() {
 
       <label>
         Number *
-        <input name="phone" type="tel" autoComplete="tel" placeholder="Best number" required />
+        <input
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          placeholder="Best number"
+          pattern="[0-9+().\s-]{7,25}"
+          title="Please enter a valid phone number with no letters."
+          required
+        />
       </label>
 
       <label>
@@ -80,6 +88,14 @@ export function ContactForm() {
           rows={5}
           required
         />
+      </label>
+
+      <label className="form-consent">
+        <input name="contactConsent" type="checkbox" required />
+        <span>
+          I agree that AquaOasis-Web can contact me back about my enquiry. See
+          our <a href="/privacy-policy">Privacy Policy</a>.
+        </span>
       </label>
 
       <button className="primary-button full-width" type="submit">

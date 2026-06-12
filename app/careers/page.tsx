@@ -49,7 +49,7 @@ export default function CareersPage() {
               Keep it focused: what you do, where you are based, and one or two
               examples that show taste, clarity, or technical quality.
             </p>
-            <a className="secondary-button" href="mailto:careers@aquaoasis-web.com?subject=AquaOasis-Web%20careers">
+            <a className="secondary-button" href="mailto:aquaoasis-web@gmail.com?subject=AquaOasis-Web%20careers">
               Email careers
             </a>
           </div>

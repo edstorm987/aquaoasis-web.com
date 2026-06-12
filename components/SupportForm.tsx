@@ -45,7 +45,15 @@ export function SupportForm() {
 
       <label>
         Telephone *
-        <input name="telephone" type="tel" autoComplete="tel" placeholder="Best number" required />
+        <input
+          name="telephone"
+          type="tel"
+          autoComplete="tel"
+          placeholder="Best number"
+          pattern="[0-9+().\s-]{7,25}"
+          title="Please enter a valid phone number with no letters."
+          required
+        />
       </label>
 
       <label>
@@ -61,6 +69,14 @@ export function SupportForm() {
           rows={5}
           required
         />
+      </label>
+
+      <label className="form-consent">
+        <input name="contactConsent" type="checkbox" required />
+        <span>
+          I agree that AquaOasis-Web can contact me back about my support
+          request. See our <a href="/privacy-policy">Privacy Policy</a>.
+        </span>
       </label>
 
       <button className="primary-button full-width" type="submit">

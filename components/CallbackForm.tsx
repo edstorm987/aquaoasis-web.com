@@ -11,7 +11,7 @@ type CallbackFormProps = {
 export function CallbackForm({
   compact = false,
   heading = "Request a call back",
-  intro = "Leave your name and phone number. We will call you back.",
+  intro = "Leave your name and phone number. Add a good time or note if helpful.",
 }: CallbackFormProps) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -56,16 +56,32 @@ export function CallbackForm({
 
       <label>
         Phone *
-        <input name="phone" type="tel" autoComplete="tel" placeholder="Best number" required />
+        <input
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          placeholder="Best number"
+          pattern="[0-9+().\s-]{7,25}"
+          title="Please enter a valid phone number with no letters."
+          required
+        />
       </label>
 
       <label>
         Message (optional)
         <textarea
           name="message"
-          placeholder="Leave a short note if helpful"
+          placeholder="Good time to call, whether you would like to meet in person, or anything useful we should know."
           rows={3}
         />
+      </label>
+
+      <label className="form-consent">
+        <input name="contactConsent" type="checkbox" required />
+        <span>
+          I agree that AquaOasis-Web can contact me back about my enquiry. See
+          our <a href="/privacy-policy">Privacy Policy</a>.
+        </span>
       </label>
 
       <button className="primary-button full-width" type="submit">

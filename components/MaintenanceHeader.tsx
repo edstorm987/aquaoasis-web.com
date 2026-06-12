@@ -10,7 +10,7 @@ export function MaintenanceHeader() {
         <div className="maintenance-nav-actions">
           <a
             className="maintenance-nav-button maintenance-phone-button"
-            href="tel:07305410203"
+            href="tel:+447305410203"
             aria-label="Call AquaOasis-Web on 07305410203"
           >
             <span className="nav-phone-icon" aria-hidden="true">
