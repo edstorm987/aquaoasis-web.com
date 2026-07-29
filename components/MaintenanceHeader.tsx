@@ -1,8 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export function MaintenanceHeader() {
+type MaintenanceHeaderProps = {
+  heroOverlay?: boolean;
+};
+
+export function MaintenanceHeader({ heroOverlay = false }: MaintenanceHeaderProps) {
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!heroOverlay) {
+      return;
+    }
+
+    function updateHeaderState() {
+      setHasScrolled(window.scrollY > 16);
+    }
+
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateHeaderState);
+  }, [heroOverlay]);
+
+  const headerClassName = [
+    "maintenance-header",
+    heroOverlay ? "hero-overlay" : "",
+    hasScrolled ? "is-scrolled" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <header className="maintenance-header">
+    <header className={headerClassName}>
       <nav className="container maintenance-nav" aria-label="Maintenance navigation">
         <Link className="maintenance-nav-logo" href="/">
           AquaOasis-Web

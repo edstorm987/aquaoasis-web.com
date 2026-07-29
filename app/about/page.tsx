@@ -1,75 +1,64 @@
-import { MaintenanceFooter } from "@/components/MaintenanceFooter";
-import { MaintenanceHeader } from "@/components/MaintenanceHeader";
-import { VslSection } from "@/components/VslSection";
+import Link from "next/link";
+import { AquaPageHero } from "@/components/AquaPageHero";
+import { AquaPageShell } from "@/components/AquaPageShell";
 
 export default function AboutPage() {
   return (
-    <>
-      <MaintenanceHeader />
-      <main className="maintenance-page">
-        <section className="maintenance-shell" aria-labelledby="about-title">
-          <div className="container about-maintenance-grid">
-            <div className="about-vsl-card reveal">
-              <VslSection />
-            </div>
-            <div className="privacy-card reveal">
-              <p className="eyebrow">About AquaOasis-Web</p>
-              <h1 id="about-title">About AquaOasis-Web</h1>
-              <p>
-                AquaOasis-Web was founded by Edward Hallam from Felixstowe,
-                Suffolk. Born in Ipswich, Edward started building websites as a
-                high school project for family, friends, and school work before
-                turning it into a practical service for people who know they
-                need to get online but do not know where to start.
-              </p>
-              <p>
-                The idea came from first-hand experience. Edward saw local
-                businesses get hit hard when diaries were lost, appointments
-                were missed, and physical routes to customers suddenly stopped.
-                Covid made the problem impossible to ignore: businesses that
-                relied only on paper, walk-ins, and word of mouth were left
-                exposed. AquaOasis-Web exists to help protect businesses from
-                that kind of risk.
-              </p>
-              <p>
-                Edward made plenty of mistakes early on, then sought
-                professional training, completed courses, gained certification,
-                and kept improving the way websites are built and delivered. He
-                started with platforms such as Squarespace and WordPress, but
-                found the limits frustrating: subscriptions, platform lock-in,
-                less control, and less ownership for the client.
-              </p>
-              <p>
-                Today AquaOasis-Web uses code-first builds so your website can
-                be owned properly, controlled properly, and kept free from
-                unnecessary monthly platform subscriptions. If you want help
-                with amendments later, we can talk about it, but the goal is
-                simple: make your online foundation yours.
-              </p>
-              <p>
-                We know how frustrating it can be when website people disappear,
-                take months to reply, or turn simple updates into a headache.
-                Business owners should not have to become web experts just to
-                look professional online. That is what we are here for.
-              </p>
-              <p>
-                Could you use AI to build a website yourself? Yes. But how do
-                you know it will perform? AquaOasis-Web does not build websites
-                just for show. We build foundations designed to help people find
-                you, trust you, and enquire. You can even try building with AI
-                first, then bring it to us for an audit. We will show you the
-                gaps and what to fix.
-              </p>
-              <p>
-                This is the future, and AquaOasis-Web is here to help small
-                businesses adapt without confusion, lock-in, or unnecessary
-                pressure.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <MaintenanceFooter />
-    </>
+    <AquaPageShell>
+      <AquaPageHero
+        eyebrow="About AquaOasis-Web"
+        title="Digital work should leave a business more capable."
+        copy="Aqua was started in Suffolk to help businesses enter the digital age without being buried in jargon, locked into unnecessary tools or left carrying the difficult parts alone."
+        image="/images/aquaoasis-hero.png"
+        imageAlt="A website planning and management workspace"
+        secondaryLabel="Explore our work"
+        secondaryHref="/work"
+      />
+
+      <section className="aqua3-case-lead">
+        <div>
+          <p className="aqua2-kicker">Built by Edward Hallam</p>
+          <h2>Practical first. Ambitious when it earns the right.</h2>
+        </div>
+        <div>
+          <p>
+            AquaOasis-Web began with a simple frustration: too many businesses
+            know they need to improve online, but the route is made to feel more
+            confusing and expensive than it needs to be.
+          </p>
+          <p>
+            Today the work stretches from local visibility and focused websites
+            to ecommerce, campaigns, customer portals and bespoke operational
+            software. The scale changes. The standard does not: understand the
+            people, make the next action clear and build something the business
+            can genuinely use.
+          </p>
+        </div>
+      </section>
+
+      <section className="aqua3-process">
+        <div>
+          <p className="aqua2-kicker">How we think</p>
+          <h2>Useful, clear and built to keep moving.</h2>
+        </div>
+        <ol>
+          <li><span>01</span><div><strong>Start with reality</strong><p>Understand the customer, operation, constraints and opportunity before prescribing a build.</p></div></li>
+          <li><span>02</span><div><strong>Make it recognisably yours</strong><p>Creative direction should reveal the business, not disguise it with a generic template.</p></div></li>
+          <li><span>03</span><div><strong>Let evidence improve it</strong><p>Measure what people find, understand and act on, then focus effort where it matters.</p></div></li>
+          <li><span>04</span><div><strong>Keep ownership clear</strong><p>Make responsibilities, files, decisions and next steps visible throughout the relationship.</p></div></li>
+        </ol>
+      </section>
+
+      <section className="aqua3-closing">
+        <p className="aqua2-kicker">A Zimante Group company</p>
+        <h2>Specialist digital work, connected when the project needs more.</h2>
+        <p>
+          Aqua works alongside Milesymedia for original photography and video,
+          with Zimante Group coordinating broader projects that cross both
+          companies.
+        </p>
+        <Link href="/#contact">Talk to Aqua →</Link>
+      </section>
+    </AquaPageShell>
   );
 }

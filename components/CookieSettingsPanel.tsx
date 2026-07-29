@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   defaultCookiePreferences,
   readCookiePreferences,
@@ -41,7 +42,11 @@ const cookieOptions: Array<{
   },
 ];
 
-export function CookieSettingsPanel() {
+type CookieSettingsPanelProps = {
+  onSaved?: () => void;
+};
+
+export function CookieSettingsPanel({ onSaved }: CookieSettingsPanelProps) {
   const [preferences, setPreferences] = useState<CookiePreferences>(defaultCookiePreferences);
   const [status, setStatus] = useState("Your current cookie choices are ready to edit.");
   const [lastSavedAt, setLastSavedAt] = useState<string | null>(null);
@@ -90,6 +95,7 @@ export function CookieSettingsPanel() {
     setLastSavedAt(savedAt);
     setJustSaved(true);
     window.setTimeout(() => setJustSaved(false), 900);
+    onSaved?.();
   }
 
   function updatePreference(key: keyof CookiePreferences) {
@@ -133,6 +139,11 @@ export function CookieSettingsPanel() {
 
   return (
     <div className="cookie-settings-panel">
+      <p className="cookie-privacy-note">
+        You can read how we handle enquiries, consent, and cookies in our{" "}
+        <Link href="/privacy-policy">Privacy Policy</Link>.
+      </p>
+
       <div className={justSaved ? "cookie-settings-status saved" : "cookie-settings-status"} role="status">
         <p>{status}</p>
         <span>

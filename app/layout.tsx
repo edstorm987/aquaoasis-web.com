@@ -5,9 +5,9 @@ import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AquaOasis-Web | Own it forever. No subscriptions.",
+  title: "AquaOasis-Web | Websites, visibility and software",
   description:
-    "AquaOasis-Web helps small businesses and creators get found online with one-time payment websites, Google profiles, social setup, and optional SEO support.",
+    "Google visibility, converting websites, connected software and evidence-led campaigns for businesses entering and leading the digital age.",
 };
 
 export default function RootLayout({
