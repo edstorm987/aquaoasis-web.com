@@ -13,8 +13,8 @@ export function AquaSiteFooter({
           <strong>AquaOasis-Web</strong>
         </Link>
         <p>
-          Visibility, websites and bespoke software built around what customers
-          and teams actually need.
+          An all-in-one digital agency for visibility, original media,
+          converting websites, campaigns and bespoke software.
         </p>
         <a className="aqua2-group" href="https://zimante.group">
           A Zimante Group company

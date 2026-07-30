@@ -14,6 +14,14 @@ const stages = [
   },
   {
     number: "02",
+    href: "/#media",
+    label: "Look the part",
+    title: "Photography, film and creative production",
+    copy: "Original work from Milesymedia gives the website, campaign and brand something real to say and something worth noticing.",
+    points: ["Commercial photography and film", "Events, people, property and products", "One brief across production and digital delivery"],
+  },
+  {
+    number: "03",
     href: "/websites",
     label: "Get online",
     title: "Simple websites that do the job",
@@ -21,7 +29,7 @@ const stages = [
     points: ["Website builds from £899", "Mobile-first design and copy", "Accessible, fast and easy to manage"],
   },
   {
-    number: "03",
+    number: "04",
     href: "/websites",
     label: "Get chosen",
     title: "Conversion websites and ecommerce",
@@ -29,7 +37,7 @@ const stages = [
     points: ["Research-led structure and messaging", "Bookings, payments and ecommerce", "Measurement built in from launch"],
   },
   {
-    number: "04",
+    number: "05",
     href: "/software",
     label: "Get connected",
     title: "Software, portals and automation",
@@ -37,7 +45,7 @@ const stages = [
     points: ["Bespoke portals and operational software", "Automations and integrations", "One connected customer experience"],
   },
   {
-    number: "05",
+    number: "06",
     href: "/growth",
     label: "Keep growing",
     title: "Campaigns and optimisation",
@@ -71,6 +79,14 @@ const builds = [
     title: "The systems behind the screen",
     copy: "Portals, dashboards, automations and campaigns that remove busywork and reveal what needs attention.",
   },
+  {
+    image: "/work/demo-media/experience.jpg",
+    href: "/#media",
+    alt: "Original Milesymedia photography and visual production",
+    eyebrow: "Photography and film",
+    title: "Creative production built for the campaign",
+    copy: "Original photography, film and aerial work planned alongside the website, launch and places it needs to perform.",
+  },
 ];
 
 export default function Home() {
@@ -92,12 +108,13 @@ export default function Home() {
         />
         <div className="aqua2-hero-shade" />
         <div className="aqua2-hero-inner">
-          <p className="aqua2-kicker">Google · websites · software · growth</p>
-          <h1>Websites that turn attention into action.</h1>
+          <p className="aqua2-kicker">Media · websites · marketing · software</p>
+          <h1>The all-in-one digital agency.</h1>
           <p className="aqua2-hero-copy">
-            We help businesses get found, look like themselves and give customers
-            what they need to choose. Start simple or build the full connected
-            system. We handle the difficult parts, so you do not have to.
+            Get found, look unmistakably like yourself and turn attention into
+            action. AquaOasis-Web joins strategy, Milesymedia production,
+            converting websites, campaigns and bespoke software around one
+            commercial goal.
           </p>
           <div className="aqua2-actions">
             <a href="#contact">Tell us what you need <span aria-hidden="true">→</span></a>
@@ -121,7 +138,7 @@ export default function Home() {
         <div className="aqua2-section-heading">
           <div>
             <p className="aqua2-kicker">Start where you are</p>
-            <h2>One partner from first listing to full digital operation.</h2>
+          <h2>One partner from first impression to full digital operation.</h2>
           </div>
           <p>
             You do not need to buy everything. We identify the shortest useful
@@ -199,20 +216,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="aqua2-media-partner" aria-labelledby="media-partner-title">
+      <section id="media" className="aqua2-media-partner" aria-labelledby="media-partner-title">
         <div className="aqua2-media-partner-icon" aria-hidden="true">
           M
         </div>
         <div>
-          <p className="aqua2-kicker">Photography and visual production</p>
+          <p className="aqua2-kicker">Milesymedia photography and production</p>
           <h2 id="media-partner-title">
-            Photography brought to you by the experts behind Milesymedia.
+            Original visuals are part of the system, not an afterthought.
           </h2>
           <p>
-            When the website needs original photography, film or aerial work,
-            our specialist media team can plan and create it alongside the
-            digital build. One joined-up brief, with visuals made for the places
-            they actually need to work.
+            The people behind Milesymedia plan photography, film and aerial work
+            alongside your website and campaigns. That means one direction, one
+            joined-up brief and assets created for the exact places they need to
+            earn attention.
           </p>
         </div>
         <a href={milesymediaUrl}>
@@ -273,7 +290,7 @@ export default function Home() {
           <div className="aqua2-contact-points">
             <span>For new and established businesses</span>
             <span>Single projects or ongoing partnership</span>
-            <span>One connected team across web and software</span>
+            <span>One connected team across media, marketing, web and software</span>
           </div>
         </div>
         <AquaEnquiryForm />

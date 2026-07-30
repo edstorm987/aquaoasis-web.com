@@ -8,6 +8,16 @@ export function AquaSiteHeader() {
 
   return (
     <header className="aqua2-header">
+      <div className="aqua2-announcement">
+        <p>
+          One joined-up team for websites, campaigns, software and original
+          Milesymedia production.
+        </p>
+        <Link href="/#contact">
+          Start a conversation
+          <span aria-hidden="true">→</span>
+        </Link>
+      </div>
       <div className="aqua2-nav">
         <Link className="aqua2-brand" href="/" aria-label="AquaOasis-Web home">
           <span aria-hidden="true">A</span>
@@ -32,6 +42,7 @@ export function AquaSiteHeader() {
           <Link href="/solutions" onClick={() => setOpen(false)}>Solutions</Link>
           <Link href="/work" onClick={() => setOpen(false)}>Work</Link>
           <Link href="/software" onClick={() => setOpen(false)}>Software</Link>
+          <Link href="/#media" onClick={() => setOpen(false)}>Media</Link>
           <Link href="/enterprise" onClick={() => setOpen(false)}>Enterprise</Link>
           <Link href="/sign-in">Client login</Link>
           <Link className="aqua2-nav-cta" href="/#contact" onClick={() => setOpen(false)}>

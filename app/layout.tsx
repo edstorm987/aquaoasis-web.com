@@ -5,9 +5,9 @@ import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AquaOasis-Web | Websites, visibility and software",
+  title: "AquaOasis-Web | The all-in-one digital agency",
   description:
-    "Google visibility, converting websites, connected software and evidence-led campaigns for businesses entering and leading the digital age.",
+    "One joined-up team for Google visibility, converting websites, campaigns, original media and connected business software.",
 };
 
 export default function RootLayout({
