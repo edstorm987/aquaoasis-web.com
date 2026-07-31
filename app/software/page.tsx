@@ -31,8 +31,10 @@ const capabilities = [
 ];
 
 export default function SoftwarePage() {
+  const defaultPortalUrl =
+    process.env.NODE_ENV === "production" ? "https://aqua-crm.com" : "http://localhost:3032";
   const portalUrl =
-    process.env.NEXT_PUBLIC_PORTAL_URL ?? "http://localhost:3032";
+    process.env.NEXT_PUBLIC_AQUACRM_URL ?? process.env.NEXT_PUBLIC_PORTAL_URL ?? defaultPortalUrl;
 
   return (
     <AquaPageShell>
