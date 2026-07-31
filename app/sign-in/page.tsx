@@ -15,8 +15,10 @@ export default async function SignInPage({
   searchParams: Promise<{ error?: string }>;
 }) {
   const { error } = await searchParams;
+  const defaultPortalUrl =
+    process.env.NODE_ENV === "production" ? "https://aqua-crm.com" : "http://localhost:3032";
   const portalUrl =
-    process.env.NEXT_PUBLIC_PORTAL_URL ?? "http://localhost:3032";
+    process.env.NEXT_PUBLIC_AQUACRM_URL ?? process.env.NEXT_PUBLIC_PORTAL_URL ?? defaultPortalUrl;
   const websiteUrl =
     process.env.NEXT_PUBLIC_AQUAOASIS_URL ?? "http://localhost:3034";
   const milesymediaUrl =
