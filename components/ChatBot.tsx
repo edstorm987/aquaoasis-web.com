@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { submitAquaEnquiry } from "./submitAquaEnquiry";
 
 export function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,9 +13,10 @@ export function ChatBot() {
     return /^[0-9+().\s-]+$/.test(value) && digitCount >= 7 && digitCount <= 15;
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const phone = String(formData.get("phone") ?? "");
 
     if (!isValidPhoneNumber(phone)) {
@@ -23,12 +25,20 @@ export function ChatBot() {
     }
 
     setPhoneError("");
-    const body = Array.from(formData.entries())
-      .map(([key, value]) => `${key}: ${value}`)
-      .join("\n");
-
-    setSubmitted(true);
-    window.location.href = `mailto:aquaoasis-web@gmail.com?subject=Website%20chat%20message&body=${encodeURIComponent(body)}`;
+    try {
+      await submitAquaEnquiry({
+        name: String(formData.get("firstName") ?? ""),
+        phone,
+        email: String(formData.get("email") ?? ""),
+        contactMethod: "chat",
+        services: ["Website chat"],
+        message: String(formData.get("message") ?? ""),
+      });
+      form.reset();
+      setSubmitted(true);
+    } catch (cause) {
+      setPhoneError(cause instanceof Error ? cause.message : "Unable to send.");
+    }
   }
 
   return (

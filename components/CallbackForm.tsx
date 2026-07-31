@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { submitAquaEnquiry } from "./submitAquaEnquiry";
 
 type CallbackFormProps = {
   compact?: boolean;
@@ -14,25 +15,33 @@ export function CallbackForm({
   intro = "Leave your name and phone number. Add a good time or note if helpful.",
 }: CallbackFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const body = Array.from(formData.entries())
-      .map(([key, value]) => `${key}: ${value}`)
-      .join("\n");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    setError("");
 
-    setSubmitted(true);
-    window.location.href = `mailto:aquaoasis-web@gmail.com?subject=Request%20a%20call%20back&body=${encodeURIComponent(body)}`;
+    try {
+      await submitAquaEnquiry({
+        name: String(formData.get("name") ?? ""),
+        phone: String(formData.get("phone") ?? ""),
+        contactMethod: "call",
+        services: ["Callback request"],
+        message: String(formData.get("message") ?? ""),
+      });
+      form.reset();
+      setSubmitted(true);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Unable to send.");
+    }
   }
 
   return (
     <form
       id="callback-form"
       className={compact ? "callback-form compact" : "callback-form"}
-      action="mailto:aquaoasis-web@gmail.com"
-      method="post"
-      encType="text/plain"
       aria-label="Request a call back"
       onSubmit={handleSubmit}
     >
@@ -42,6 +51,7 @@ export function CallbackForm({
           <p>We have your details. AquaOasis-Web will get back to you shortly.</p>
         </div>
       ) : null}
+      {error ? <div className="form-success form-error" role="alert"><strong>Could not send.</strong><p>{error}</p></div> : null}
 
       <div className="form-heading">
         <p className="eyebrow">Fastest next step</p>

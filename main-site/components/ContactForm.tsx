@@ -4,16 +4,48 @@ import { FormEvent, useState } from "react";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const body = Array.from(formData.entries())
-      .map(([key, value]) => `${key}: ${value}`)
-      .join("\n");
+    setError("");
 
-    setSubmitted(true);
-    window.location.href = `mailto:aquaoasis-web@gmail.com?subject=AquaOasis-Web%20main%20site%20enquiry&body=${encodeURIComponent(body)}`;
+    const form = event.currentTarget;
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const product = String(formData.get("product") || "Not sure yet").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT ?? "http://localhost:3032/api/public/brand-enquiry",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            brand: "aquaoasis-web",
+            name,
+            phone,
+            email: email || undefined,
+            contactMethod: phone ? "call" : "email",
+            services: [product],
+            message,
+            sourceUrl: window.location.href,
+            campaign: "AquaOasis-Web main site enquiry",
+            consent: true,
+          }),
+        },
+      );
+
+      if (!response.ok) throw new Error("Could not send enquiry.");
+
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setError("Sorry, that did not send. Please email us directly.");
+    }
   }
 
   return (
@@ -22,6 +54,11 @@ export function ContactForm() {
         <div className="form-success" role="status">
           <strong>Thanks, we have got it.</strong>
           <p>We will get back to you and point you towards the right next step.</p>
+        </div>
+      ) : null}
+      {error ? (
+        <div className="form-success" role="alert">
+          <strong>{error}</strong>
         </div>
       ) : null}
 
