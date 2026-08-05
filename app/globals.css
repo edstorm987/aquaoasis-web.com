@@ -21,11 +21,15 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
+  max-width: 100%;
   margin: 0;
+  overflow-x: clip;
   background: var(--cream);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
@@ -3296,33 +3300,39 @@ select:focus-visible {
     right: 12px;
     bottom: 12px;
     width: calc(100% - 24px);
-    padding: 14px;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .cookie-banner p {
+    margin-top: 4px;
+    font-size: 0.82rem;
+    line-height: 1.35;
   }
 
   .cookie-actions {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
   }
 
   .cookie-actions button {
-    min-height: 40px;
-    padding: 0 12px;
-    font-size: 0.84rem;
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.78rem;
   }
 
   .cookie-actions button:first-child {
-    grid-column: 1;
+    grid-column: auto;
   }
 
   .cookie-actions .cookie-accept-button {
-    grid-column: 1;
+    grid-column: auto;
   }
 
   .cookie-actions .cookie-manage-button {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: stretch;
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 
   .cookie-modal-backdrop {
@@ -3419,7 +3429,7 @@ select:focus-visible {
 /* AquaOasis-Web public experience */
 .aqua2-site {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: #f8faf8;
   color: #102033;
 }
@@ -4139,9 +4149,14 @@ select:focus-visible {
 }
 
 @media (max-width: 850px) {
+  .aqua2-header {
+    background: rgba(4, 17, 28, 0.94);
+  }
+
   .aqua2-nav {
     position: relative;
     width: calc(100% - 32px);
+    min-height: 66px;
   }
 
   .aqua2-menu-button {
@@ -4151,7 +4166,7 @@ select:focus-visible {
 
   .aqua2-links {
     position: absolute;
-    top: 68px;
+    top: calc(100% + 8px);
     right: 0;
     left: 0;
     display: none;
@@ -4173,6 +4188,7 @@ select:focus-visible {
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-inline: 12px;
+    color: rgba(255, 255, 255, 0.88);
   }
 
   .aqua2-links .aqua2-nav-cta {
@@ -4181,7 +4197,7 @@ select:focus-visible {
   }
 
   .aqua2-hero {
-    min-height: 720px;
+    min-height: 700px;
   }
 
   .aqua2-hero-image {
@@ -4196,7 +4212,7 @@ select:focus-visible {
 
   .aqua2-hero-inner {
     width: calc(100% - 32px);
-    padding: 166px 0 42px;
+    padding: 156px 0 42px;
   }
 
   .aqua2-hero h1 {
@@ -4271,7 +4287,7 @@ select:focus-visible {
   }
 
   .aqua2-build-image {
-    min-height: 320px;
+    min-height: 300px;
   }
 
   .aqua2-media-partner {
@@ -4299,6 +4315,11 @@ select:focus-visible {
   .aqua2-footer {
     grid-template-columns: 1fr;
     padding: 48px 20px;
+  }
+
+  .aqua2-footer nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
   }
 
   .aqua2-footer .aqua2-media-link {
@@ -4332,11 +4353,15 @@ select:focus-visible {
   }
 
   .aqua2-hero {
-    min-height: 730px;
+    min-height: 690px;
   }
 
   .aqua2-hero h1 {
-    font-size: 3rem;
+    font-size: 2.85rem;
+  }
+
+  .aqua2-hero-copy {
+    font-size: 0.98rem;
   }
 
   .aqua2-actions {
@@ -4361,7 +4386,7 @@ select:focus-visible {
 
   .aqua2-build-image,
   .aqua2-data-visual {
-    min-height: 300px;
+    min-height: 260px;
   }
 
   .aqua2-build-grid {
@@ -4369,11 +4394,15 @@ select:focus-visible {
   }
 
   .aqua2-contact .aqua-enquiry {
-    padding: 20px;
+    padding: 18px;
   }
 
   .aqua2-form-pair,
   .aqua2-contact .aqua-form-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .aqua2-footer nav {
     grid-template-columns: 1fr;
   }
 }
