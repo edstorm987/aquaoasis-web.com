@@ -50,7 +50,7 @@ export default function AboutPage() {
       </section>
 
       <section className="aqua3-closing">
-        <p className="aqua2-kicker">A Zimante Group company</p>
+        <p className="aqua2-kicker">Part of the Zimante Group family of brands</p>
         <h2>Specialist digital work, connected when the project needs more.</h2>
         <p>
           Aqua works alongside Milesymedia for original photography and video,

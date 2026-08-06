@@ -17,7 +17,7 @@ export function AquaSiteFooter({
           converting websites, campaigns and bespoke software.
         </p>
         <a className="aqua2-group" href="https://zimante-group.com">
-          A Zimante Group company
+          Part of the Zimante Group family of brands
         </a>
         <a className="aqua2-media-link" href={milesymediaUrl}>
           Photography by Milesymedia
@@ -37,7 +37,10 @@ export function AquaSiteFooter({
         <Link href="/cookie-settings">Cookies</Link>
         <Link href="/sign-in">Client login</Link>
       </nav>
-      <p>© 2026 AquaOasis-Web. Digital work that earns its place.</p>
+      <p>
+        © 2026 AquaOasis-Web. AquaOasis-Web is a trading name of Edward Hallam,
+        a sole trader in England and Wales.
+      </p>
     </footer>
   );
 }

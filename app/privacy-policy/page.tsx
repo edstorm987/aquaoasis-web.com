@@ -17,7 +17,9 @@ export default function PrivacyPolicyPage() {
             </p>
             <h2>Who we are</h2>
             <p>
-              AquaOasis-Web provides websites, Google Profile support, social
+              This website is operated by Edward Hallam, a sole trader in
+              England and Wales trading as AquaOasis-Web. AquaOasis-Web
+              provides websites, Google Profile support, social
               presence setup, website reviews, and related digital services for
               small businesses and creators. You can contact us at
               aquaoasis-web@gmail.com or 07305410203.

@@ -79,7 +79,10 @@ export function MaintenanceFooter() {
         </div>
       </div>
       <div className="container maintenance-footer-bottom">
-        <p>Copyright © 2026 AquaOasis-Web. All rights reserved.</p>
+        <p>
+          Copyright © 2026 AquaOasis-Web. AquaOasis-Web is a trading name of
+          Edward Hallam, a sole trader in England and Wales.
+        </p>
         <div className="maintenance-footer-legal">
           <a href="/privacy-policy">Privacy Policy</a>
           <CookieSettingsButton />
