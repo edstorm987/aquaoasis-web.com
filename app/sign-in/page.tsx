@@ -20,9 +20,9 @@ export default async function SignInPage({
   const portalUrl =
     process.env.NEXT_PUBLIC_AQUACRM_URL ?? process.env.NEXT_PUBLIC_PORTAL_URL ?? defaultPortalUrl;
   const websiteUrl =
-    process.env.NEXT_PUBLIC_AQUAOASIS_URL ?? "http://localhost:3034";
+    process.env.NEXT_PUBLIC_AQUAOASIS_URL ?? "https://aquaoasis-web.com";
   const milesymediaUrl =
-    process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "http://localhost:3030";
+    process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "https://milesymedia.com";
 
   return (
     <main className="aqua2-site">

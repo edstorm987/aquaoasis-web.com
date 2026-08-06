@@ -16,7 +16,7 @@ export function AquaSiteFooter({
           An all-in-one digital agency for visibility, original media,
           converting websites, campaigns and bespoke software.
         </p>
-        <a className="aqua2-group" href="https://zimante.group">
+        <a className="aqua2-group" href="https://zimante-group.com">
           A Zimante Group company
         </a>
         <a className="aqua2-media-link" href={milesymediaUrl}>

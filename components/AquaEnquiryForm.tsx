@@ -27,7 +27,7 @@ export function AquaEnquiryForm() {
         try {
           const response = await fetch(
             process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT
-              ?? "http://localhost:3032/api/public/brand-enquiry",
+              ?? "https://aqua-crm.com/api/public/brand-enquiry",
             {
               method: "POST",
               headers: { "content-type": "application/json" },

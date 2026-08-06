@@ -13,3 +13,6 @@ node_modules/
 out/
 dist/
 coverage/
+
+# local-only private deployment/docs handoff
+Dev Team/

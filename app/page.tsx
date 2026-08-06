@@ -91,7 +91,7 @@ const builds = [
 
 export default function Home() {
   const milesymediaUrl =
-    process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "http://localhost:3030";
+    process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "https://milesymedia.com";
 
   return (
     <main className="aqua2-site">

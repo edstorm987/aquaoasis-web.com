@@ -3,7 +3,7 @@ import { AquaSiteFooter } from "./AquaSiteFooter";
 import { AquaSiteHeader } from "./AquaSiteHeader";
 
 const milesymediaUrl =
-  process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "http://localhost:3030";
+  process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "https://milesymedia.com";
 
 export function AquaPageShell({ children }: { children: ReactNode }) {
   return (

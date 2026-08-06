@@ -61,7 +61,7 @@ export function MaintenanceFooter() {
               </svg>
             </span>
             <span>Built by our founder</span>
-            <a href="https://www.edward-hallam.com">Edward Hallam</a>
+            <a href="https://edward-hallam.com">Edward Hallam</a>
           </div>
           <div className="footer-card-support">
             <span className="footer-icon" aria-hidden="true">
