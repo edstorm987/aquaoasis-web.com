@@ -30,8 +30,11 @@ export function SiteFooter() {
 
       <div className="container footer-bottom">
         <p>
-          AquaOasis-Web is a trading name of Edward Hallam, a sole trader in
-          England and Wales.
+          AquaOasis-Web is a trading name of{" "}
+          <a href="https://edward-hallam.com" target="_blank" rel="noopener noreferrer">
+            Edward Hallam
+          </a>
+          , a sole trader in England and Wales.
         </p>
         <p>Own it forever. No subscriptions.</p>
       </div>

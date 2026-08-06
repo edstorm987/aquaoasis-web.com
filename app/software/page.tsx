@@ -124,7 +124,13 @@ export default function SoftwarePage() {
           development visibility into one connected workspace. It is also a
           practical example of how we approach complex operational software.
         </p>
-        <a href={`${portalUrl}/login?next=/portal`}>Open AquaCRM →</a>
+        <a
+          href={`${portalUrl}/login?next=/portal`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open AquaCRM →
+        </a>
       </section>
     </AquaPageShell>
   );

@@ -16,10 +16,20 @@ export function AquaSiteFooter({
           An all-in-one digital agency for visibility, original media,
           converting websites, campaigns and bespoke software.
         </p>
-        <a className="aqua2-group" href="https://zimante-group.com">
+        <a
+          className="aqua2-group"
+          href="https://zimante-group.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Part of the Zimante Group family of brands
         </a>
-        <a className="aqua2-media-link" href={milesymediaUrl}>
+        <a
+          className="aqua2-media-link"
+          href={milesymediaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Photography by Milesymedia
         </a>
       </div>
@@ -38,8 +48,11 @@ export function AquaSiteFooter({
         <Link href="/sign-in">Client login</Link>
       </nav>
       <p>
-        © 2026 AquaOasis-Web. AquaOasis-Web is a trading name of Edward Hallam,
-        a sole trader in England and Wales.
+        © 2026 AquaOasis-Web. AquaOasis-Web is a trading name of{" "}
+        <a href="https://edward-hallam.com" target="_blank" rel="noopener noreferrer">
+          Edward Hallam
+        </a>
+        , a sole trader in England and Wales.
       </p>
     </footer>
   );

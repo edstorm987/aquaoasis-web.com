@@ -4407,6 +4407,48 @@ select:focus-visible {
   }
 }
 
+@media (max-width: 850px) {
+  html {
+    scroll-padding-top: 122px;
+  }
+
+  .aqua2-menu-button {
+    min-height: 44px;
+  }
+
+  .aqua2-brand {
+    min-height: 44px;
+  }
+
+  .aqua2-links {
+    max-height: calc(100svh - 122px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .aqua2-section,
+  .aqua2-data,
+  .aqua2-access,
+  .aqua2-enterprise,
+  .aqua2-contact,
+  #media,
+  #contact {
+    scroll-margin-top: 122px;
+  }
+
+  .aqua2-footer nav a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .aqua2-site input:not([type="checkbox"]):not([type="radio"]),
+  .aqua2-site select,
+  .aqua2-site textarea {
+    min-height: 48px;
+  }
+}
+
 /* Aqua multi-page website */
 .aqua3-hero {
   position: relative;

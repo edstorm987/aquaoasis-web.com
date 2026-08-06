@@ -20,7 +20,7 @@ export function MaintenanceFooter() {
               href="https://www.instagram.com/aquaoasis_web/"
               aria-label="AquaOasis-Web on Instagram"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -61,7 +61,13 @@ export function MaintenanceFooter() {
               </svg>
             </span>
             <span>Built by our founder</span>
-            <a href="https://edward-hallam.com">Edward Hallam</a>
+            <a
+              href="https://edward-hallam.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Edward Hallam
+            </a>
           </div>
           <div className="footer-card-support">
             <span className="footer-icon" aria-hidden="true">
@@ -80,8 +86,11 @@ export function MaintenanceFooter() {
       </div>
       <div className="container maintenance-footer-bottom">
         <p>
-          Copyright © 2026 AquaOasis-Web. AquaOasis-Web is a trading name of
-          Edward Hallam, a sole trader in England and Wales.
+          Copyright © 2026 AquaOasis-Web. AquaOasis-Web is a trading name of{" "}
+          <a href="https://edward-hallam.com" target="_blank" rel="noopener noreferrer">
+            Edward Hallam
+          </a>
+          , a sole trader in England and Wales.
         </p>
         <div className="maintenance-footer-legal">
           <a href="/privacy-policy">Privacy Policy</a>

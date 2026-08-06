@@ -232,7 +232,7 @@ export default function Home() {
             earn attention.
           </p>
         </div>
-        <a href={milesymediaUrl}>
+        <a href={milesymediaUrl} target="_blank" rel="noopener noreferrer">
           Explore Milesymedia
           <span aria-hidden="true">↗</span>
         </a>

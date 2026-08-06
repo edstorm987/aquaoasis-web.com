@@ -88,7 +88,13 @@ export default async function SignInPage({
               </label>
               {error ? <p className="aqua-login-error" role="alert">{error}</p> : null}
               <div className="aqua-login-meta">
-                <a href={`${portalUrl}/login/forgot?brand=aqua`}>Forgot password?</a>
+                <a
+                  href={`${portalUrl}/login/forgot?brand=aqua`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Forgot password?
+                </a>
                 <span>Secure client access</span>
               </div>
               <button type="submit">Sign in <span aria-hidden="true">→</span></button>
