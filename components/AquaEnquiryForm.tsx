@@ -5,19 +5,20 @@ import { useState } from "react";
 const services = [
   "Google & local visibility",
   "Website or ecommerce",
-  "Customer portal or software",
-  "Automation & integrations",
-  "Campaigns & optimisation",
-  "Enterprise partnership",
+  "Advertising & campaigns",
+  "Photography, video or content",
+  "Custom software or automation",
+  "Business systems or Business OS",
 ];
 
-export function AquaEnquiryForm() {
+export function AquaEnquiryForm({ defaultService }: { defaultService?: string } = {}) {
   const [status, setStatus] = useState<"idle" | "busy" | "sent" | "error">("idle");
   const [error, setError] = useState("");
 
   return (
     <form
       className="aqua-enquiry"
+      data-aqua-form="Project enquiry"
       onSubmit={async (event) => {
         event.preventDefault();
         const form = event.currentTarget;
@@ -56,7 +57,8 @@ export function AquaEnquiryForm() {
         }
       }}
     >
-      <input className="aqua-trap" name="website" tabIndex={-1} autoComplete="off" />
+      <input className="aqua-trap" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" aria-label="Leave this field blank" />
+      {defaultService ? <input type="hidden" name="services" value={defaultService} /> : null}
       <div className="aqua-form-pair">
         <label>Name<input required name="name" autoComplete="name" /></label>
         <label>Email<input required type="email" name="email" autoComplete="email" /></label>
@@ -80,7 +82,7 @@ export function AquaEnquiryForm() {
       </fieldset>
       <label>Where are you now?<textarea name="message" rows={4} placeholder="Tell us what you have and what you want to improve." /></label>
       <label className="aqua-consent"><input required type="checkbox" name="consent" value="yes" />I agree that my details can be used to reply to this enquiry and managed centrally by Zimante Group.</label>
-      <button disabled={status === "busy"}>{status === "busy" ? "Sending..." : "Find my next step"}</button>
+      <button disabled={status === "busy"}>{status === "busy" ? "Sending..." : "Send my enquiry"}</button>
       {status === "sent" ? <p className="aqua-notice">Thanks. Your enquiry is safely in our central workspace.</p> : null}
       {status === "error" ? <p className="aqua-notice aqua-error">{error}</p> : null}
     </form>

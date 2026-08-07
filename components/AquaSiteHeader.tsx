@@ -10,11 +10,10 @@ export function AquaSiteHeader() {
     <header className="aqua2-header">
       <div className="aqua2-announcement">
         <p>
-          One joined-up team for websites, campaigns, software and original
-          Milesymedia production.
+          Not sure what you need yet? Start with the free Business Health Check.
         </p>
-        <Link href="/#contact">
-          Start a conversation
+        <Link href="/health-check">
+          Check the business
           <span aria-hidden="true">→</span>
         </Link>
       </div>
@@ -39,14 +38,13 @@ export function AquaSiteHeader() {
           className={open ? "aqua2-links is-open" : "aqua2-links"}
           aria-label="Main navigation"
         >
-          <Link href="/solutions" onClick={() => setOpen(false)}>Solutions</Link>
+          <Link href="/#services" onClick={() => setOpen(false)}>Services</Link>
           <Link href="/work" onClick={() => setOpen(false)}>Work</Link>
-          <Link href="/software" onClick={() => setOpen(false)}>Software</Link>
-          <Link href="/#media" onClick={() => setOpen(false)}>Media</Link>
-          <Link href="/enterprise" onClick={() => setOpen(false)}>Enterprise</Link>
+          <Link href="/#tools" onClick={() => setOpen(false)}>Free tools</Link>
+          <Link href="/about" onClick={() => setOpen(false)}>About</Link>
           <Link href="/sign-in">Client login</Link>
           <Link className="aqua2-nav-cta" href="/#contact" onClick={() => setOpen(false)}>
-            Find your next step
+            Start a project
           </Link>
         </nav>
       </div>

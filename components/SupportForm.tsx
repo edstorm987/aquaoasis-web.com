@@ -21,6 +21,7 @@ export function SupportForm() {
         contactMethod: "support",
         services: ["Support request"],
         message: String(formData.get("supportRequest") ?? ""),
+        consent: formData.get("contactConsent") === "yes",
       });
       form.reset();
       setSubmitted(true);
@@ -34,6 +35,7 @@ export function SupportForm() {
       className="callback-form contact-form"
       aria-label="Customer support form"
       onSubmit={handleSubmit}
+      data-aqua-form="Support request"
     >
       {submitted ? (
         <div className="form-success" role="status">
@@ -83,7 +85,7 @@ export function SupportForm() {
       </label>
 
       <label className="form-consent">
-        <input name="contactConsent" type="checkbox" required />
+        <input name="contactConsent" type="checkbox" value="yes" required />
         <span>
           I agree that AquaOasis-Web can contact me back about my support
           request. See our <a href="/privacy-policy">Privacy Policy</a>.

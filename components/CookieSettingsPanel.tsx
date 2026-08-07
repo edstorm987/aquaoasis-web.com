@@ -32,13 +32,13 @@ const cookieOptions: Array<{
     key: "analytics",
     title: "Analytics cookies",
     description:
-      "Help us understand visits, pages viewed, and what needs improving. This is where Google Analytics or Google Tags would sit.",
+      "Let first-party Aqua analytics measure visits, page use, performance and faults without collecting what you type into forms. Future analytics tags would use this same permission.",
   },
   {
     key: "marketing",
     title: "Marketing cookies",
     description:
-      "Allow ad pixels and remarketing tools, such as Meta or Google Ads pixels, if they are added in future.",
+      "Allow opted-in campaign conversion measurement and future advertising integrations. No form contents are sent as tracking data.",
   },
 ];
 

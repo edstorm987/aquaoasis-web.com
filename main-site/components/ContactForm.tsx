@@ -17,6 +17,7 @@ export function ContactForm() {
     const email = String(formData.get("email") || "").trim();
     const product = String(formData.get("product") || "Not sure yet").trim();
     const message = String(formData.get("message") || "").trim();
+    const consent = formData.get("consent") === "yes";
 
     try {
       const response = await fetch(
@@ -34,7 +35,7 @@ export function ContactForm() {
             message,
             sourceUrl: window.location.href,
             campaign: "AquaOasis-Web main site enquiry",
-            consent: true,
+            consent,
           }),
         },
       );
@@ -49,7 +50,12 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} aria-label="AquaOasis-Web enquiry form">
+    <form
+      className="contact-form"
+      onSubmit={handleSubmit}
+      aria-label="AquaOasis-Web enquiry form"
+      data-aqua-form="AquaOasis-Web enquiry"
+    >
       {submitted ? (
         <div className="form-success" role="status">
           <strong>Thanks, we have got it.</strong>
@@ -98,6 +104,10 @@ export function ContactForm() {
           rows={4}
           placeholder="Tell us what you have now and what you want to improve."
         />
+      </label>
+      <label className="consent-field">
+        <input name="consent" type="checkbox" value="yes" required />
+        <span>I agree that my details can be used to reply to this enquiry.</span>
       </label>
       <button className="primary-button full-width" type="submit">
         Send enquiry

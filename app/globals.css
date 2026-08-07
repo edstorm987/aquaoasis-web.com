@@ -4109,7 +4109,7 @@ select:focus-visible {
   margin-bottom: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding-top: 22px;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 0.72rem;
 }
 
@@ -4644,6 +4644,15 @@ select:focus-visible {
   text-align: center;
 }
 
+.aqua3-work-intro .aqua2-kicker,
+.aqua3-work-card-content .aqua2-kicker {
+  color: #12646a;
+}
+
+.aqua3-closing .aqua2-kicker {
+  color: #0b4f56;
+}
+
 .aqua3-closing > p:not(.aqua2-kicker) {
   max-width: 670px;
   margin: 24px auto 0;
@@ -5055,7 +5064,7 @@ select:focus-visible {
 
 .aqua-login-brand small {
   margin-top: 4px;
-  color: #5f777a;
+  color: #536b70;
 }
 
 .aqua-login-card h2 {
@@ -5105,7 +5114,7 @@ select:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  color: #718588;
+  color: #536b70;
   font-size: 0.8rem;
 }
 
@@ -5171,5 +5180,1162 @@ select:focus-visible {
 
   .aqua-login-back {
     margin-bottom: 34px;
+  }
+}
+
+/* AquaOasis 2026 homepage */
+.oasis-home {
+  --oasis-ink: #142129;
+  --oasis-night: #071a24;
+  --oasis-teal: #176d68;
+  --oasis-sea: #dcece8;
+  --oasis-blue: #2c586e;
+  --oasis-yellow: #f0c46a;
+  --oasis-paper: #f7f8f5;
+  --oasis-line: #cfd9d5;
+  background: var(--oasis-paper);
+  color: var(--oasis-ink);
+}
+
+.oasis-shell {
+  width: min(1320px, calc(100% - 56px));
+  margin-inline: auto;
+}
+
+.oasis-section {
+  padding-block: 112px;
+}
+
+.oasis-kicker,
+.oasis-card-label {
+  margin: 0;
+  color: var(--oasis-teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.oasis-home h1,
+.oasis-home h2,
+.oasis-home h3 {
+  letter-spacing: 0;
+}
+
+.oasis-hero {
+  position: relative;
+  display: flex;
+  min-height: 790px;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--oasis-night);
+  color: #fff;
+}
+
+.oasis-hero-image {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+}
+
+.oasis-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 18, 27, 0.97) 0%, rgba(4, 18, 27, 0.91) 43%, rgba(4, 18, 27, 0.28) 76%),
+    linear-gradient(0deg, rgba(4, 18, 27, 0.92) 0%, rgba(4, 18, 27, 0.04) 64%);
+}
+
+.oasis-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 190px 0 60px;
+}
+
+.oasis-hero .oasis-kicker {
+  color: #8fd5cf;
+}
+
+.oasis-hero h1 {
+  max-width: 900px;
+  margin: 18px 0 26px;
+  color: #fff;
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.94;
+}
+
+.oasis-hero-copy {
+  max-width: 670px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.18rem;
+  line-height: 1.65;
+}
+
+.oasis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.oasis-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 5px;
+  padding: 0 21px;
+  font-weight: 900;
+}
+
+.oasis-button-primary {
+  border-color: var(--oasis-yellow);
+  background: var(--oasis-yellow);
+  color: var(--oasis-ink);
+}
+
+.oasis-button:hover {
+  border-color: #fff;
+  background: #fff;
+  color: var(--oasis-ink);
+}
+
+.oasis-hero-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  max-width: 900px;
+  margin-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.19);
+  padding-top: 20px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
+}
+
+.oasis-hero-detail span::before {
+  margin-right: 9px;
+  color: #8fd5cf;
+  content: "✓";
+}
+
+.oasis-outcomes {
+  border-bottom: 1px solid var(--oasis-line);
+  background: #eef4f1;
+}
+
+.oasis-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.oasis-outcome-grid article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  min-height: 170px;
+  align-content: center;
+  border-right: 1px solid var(--oasis-line);
+  padding: 34px;
+}
+
+.oasis-outcome-grid article:last-child {
+  border-right: 0;
+}
+
+.oasis-outcome-grid article > span {
+  color: var(--oasis-teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.oasis-outcome-grid h2 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+}
+
+.oasis-outcome-grid p {
+  margin: 0;
+  color: #5f6d70;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.oasis-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.65fr);
+  gap: 76px;
+  align-items: end;
+}
+
+.oasis-heading h2,
+.oasis-tools-intro h2,
+.oasis-method h2,
+.oasis-media h2,
+.oasis-about h2,
+.oasis-contact h2 {
+  margin: 16px 0 0;
+  font-size: clamp(3rem, 5vw, 5.1rem);
+  line-height: 0.98;
+}
+
+.oasis-heading > p,
+.oasis-heading > div:last-child > p {
+  margin: 0;
+  color: #5c696d;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.oasis-heading > div:last-child > a {
+  display: inline-flex;
+  margin-top: 18px;
+  color: var(--oasis-teal);
+  font-weight: 900;
+}
+
+.oasis-work {
+  background: #fff;
+}
+
+.oasis-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 58px;
+}
+
+.oasis-work-card {
+  overflow: hidden;
+  border: 1px solid var(--oasis-line);
+  border-radius: 7px;
+  background: #fff;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.oasis-work-card:hover {
+  border-color: var(--oasis-teal);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(14, 43, 49, 0.11);
+}
+
+.oasis-work-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #dce6e2;
+}
+
+.oasis-work-image img {
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.oasis-work-card:hover .oasis-work-image img {
+  transform: scale(1.025);
+}
+
+.oasis-work-copy {
+  padding: 26px;
+}
+
+.oasis-work-copy h3 {
+  margin: 10px 0 10px;
+  font-size: 1.55rem;
+}
+
+.oasis-work-copy > p:not(.oasis-card-label) {
+  min-height: 4.8em;
+  margin: 0;
+  color: #607074;
+  line-height: 1.6;
+}
+
+.oasis-work-copy > span {
+  display: inline-flex;
+  margin-top: 22px;
+  color: var(--oasis-teal);
+  font-weight: 900;
+}
+
+.oasis-services {
+  background: var(--oasis-paper);
+}
+
+.oasis-service-list {
+  margin-top: 66px;
+  border-top: 1px solid var(--oasis-line);
+}
+
+.oasis-service-list article {
+  display: grid;
+  grid-template-columns: 48px minmax(190px, 0.78fr) minmax(280px, 1.1fr) minmax(250px, 0.86fr);
+  gap: 26px;
+  align-items: start;
+  border-bottom: 1px solid var(--oasis-line);
+  padding: 34px 0;
+}
+
+.oasis-service-index {
+  color: var(--oasis-teal);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.oasis-service-list h3 {
+  margin: 9px 0 0;
+  font-size: 1.45rem;
+}
+
+.oasis-service-list article > p {
+  margin: 0;
+  color: #5c696d;
+  line-height: 1.7;
+}
+
+.oasis-service-end {
+  display: grid;
+  gap: 22px;
+}
+
+.oasis-service-end > span {
+  color: #55656a;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.oasis-service-end a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 22px;
+  color: var(--oasis-teal);
+  font-weight: 900;
+}
+
+.oasis-tools {
+  padding: 112px 0;
+  background: var(--oasis-night);
+  color: #fff;
+}
+
+.oasis-tools-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.65fr);
+  gap: 76px;
+  align-items: end;
+}
+
+.oasis-tools-intro .oasis-kicker {
+  grid-column: 1 / -1;
+  margin-bottom: -56px;
+  color: #8fd5cf;
+}
+
+.oasis-tools-intro h2 {
+  color: #fff;
+}
+
+.oasis-tools-intro > p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.oasis-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 58px;
+}
+
+.oasis-tool-card {
+  position: relative;
+  min-height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 7px;
+  background: var(--oasis-yellow);
+  color: var(--oasis-ink);
+  padding: 42px;
+}
+
+.oasis-tool-card-dark {
+  background: #12484f;
+  color: #fff;
+}
+
+.oasis-tool-number {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  color: #4d442d;
+  font-size: 0.78rem;
+  font-weight: 900;
+  opacity: 1;
+}
+
+.oasis-tool-card-dark .oasis-tool-number {
+  color: #fff;
+}
+
+.oasis-tool-card .oasis-card-label {
+  color: currentColor;
+  opacity: 0.68;
+}
+
+.oasis-tool-card h3 {
+  max-width: 470px;
+  margin: 72px 0 16px;
+  font-size: clamp(2.2rem, 3vw, 3.4rem);
+  line-height: 1;
+}
+
+.oasis-tool-card > p:not(.oasis-card-label) {
+  max-width: 560px;
+  margin: 0;
+  line-height: 1.68;
+  opacity: 0.76;
+}
+
+.oasis-tool-card strong {
+  position: absolute;
+  bottom: 40px;
+  left: 42px;
+}
+
+.oasis-tool-card:hover {
+  border-color: #fff;
+}
+
+.oasis-method {
+  padding: 112px 0;
+  background: #fff;
+}
+
+.oasis-method-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(460px, 1fr);
+  gap: 100px;
+  align-items: start;
+}
+
+.oasis-method ol {
+  margin: 0;
+  border-top: 1px solid var(--oasis-line);
+  padding: 0;
+  list-style: none;
+}
+
+.oasis-method li {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 18px;
+  border-bottom: 1px solid var(--oasis-line);
+  padding: 28px 0;
+}
+
+.oasis-method li > span {
+  color: var(--oasis-teal);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.oasis-method strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 1.16rem;
+}
+
+.oasis-method li p {
+  margin: 0;
+  color: #617075;
+  line-height: 1.65;
+}
+
+.oasis-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+  min-height: 650px;
+  background: #d9e5e1;
+}
+
+.oasis-media-image {
+  position: relative;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.oasis-media-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.oasis-media-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 76px max(36px, calc((100vw - 1320px) / 2));
+}
+
+.oasis-media-copy h2 {
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+}
+
+.oasis-media-copy > p:not(.oasis-kicker) {
+  margin: 26px 0 0;
+  color: #4e6266;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.oasis-media-copy > a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  color: var(--oasis-teal);
+  font-weight: 900;
+}
+
+.oasis-about {
+  background: var(--oasis-blue);
+  color: #fff;
+}
+
+.oasis-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(430px, 1fr);
+  gap: 100px;
+}
+
+.oasis-about .oasis-kicker {
+  color: #9edbd3;
+}
+
+.oasis-about h2 {
+  color: #fff;
+}
+
+.oasis-about-lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.12rem;
+  line-height: 1.72;
+}
+
+.oasis-about-copy ul {
+  margin: 34px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0;
+  list-style: none;
+}
+
+.oasis-about-copy li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 18px 0;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.oasis-about-copy li::before {
+  margin-right: 12px;
+  color: var(--oasis-yellow);
+  content: "✓";
+}
+
+.oasis-about-copy > a {
+  display: inline-flex;
+  margin-top: 28px;
+  color: var(--oasis-yellow);
+  font-weight: 900;
+}
+
+.oasis-contact {
+  padding: 112px 0;
+  background: #edf3f0;
+}
+
+.oasis-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(500px, 1fr);
+  gap: 90px;
+  align-items: start;
+}
+
+.oasis-contact h2 {
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+}
+
+.oasis-contact-grid > div > p:not(.oasis-kicker) {
+  max-width: 570px;
+  margin: 26px 0 0;
+  color: #59686c;
+  line-height: 1.75;
+}
+
+.oasis-contact-notes {
+  display: grid;
+  gap: 13px;
+  margin-top: 34px;
+  color: #4f6265;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.oasis-contact-notes span::before {
+  margin-right: 10px;
+  color: var(--oasis-teal);
+  content: "✓";
+}
+
+.oasis-contact .aqua-enquiry {
+  border: 1px solid var(--oasis-line);
+  border-radius: 7px;
+  background: #fff;
+  padding: 34px;
+  box-shadow: 0 18px 50px rgba(19, 52, 55, 0.08);
+}
+
+.oasis-contact .aqua-enquiry input,
+.oasis-contact .aqua-enquiry select,
+.oasis-contact .aqua-enquiry textarea,
+.oasis-contact .aqua-checks label {
+  border-color: #becbc6;
+  background: #fbfcfa;
+}
+
+.oasis-contact .aqua-enquiry button {
+  cursor: pointer;
+  background: var(--oasis-teal);
+}
+
+.oasis-contact .aqua-enquiry button:hover {
+  background: var(--oasis-night);
+}
+
+.oasis-home section[id] {
+  scroll-margin-top: 118px;
+}
+
+.oasis-home .aqua2-header {
+  background: rgba(5, 23, 32, 0.94);
+}
+
+.oasis-home .aqua2-nav {
+  width: min(1320px, calc(100% - 56px));
+}
+
+.oasis-home .aqua2-links {
+  gap: 24px;
+}
+
+.oasis-home .aqua2-nav-cta {
+  background: var(--oasis-yellow);
+}
+
+.oasis-home .aqua2-footer {
+  background: var(--oasis-night);
+}
+
+@media (max-width: 1080px) {
+  .oasis-work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .oasis-work-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .oasis-work-card:last-child .oasis-work-image {
+    aspect-ratio: 2.2 / 1;
+  }
+
+  .oasis-service-list article {
+    grid-template-columns: 42px minmax(180px, 0.7fr) minmax(260px, 1fr);
+  }
+
+  .oasis-service-end {
+    grid-column: 2 / -1;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .oasis-method-grid,
+  .oasis-about-grid,
+  .oasis-contact-grid {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 850px) {
+  .oasis-shell {
+    width: min(100% - 36px, 720px);
+  }
+
+  .oasis-section,
+  .oasis-tools,
+  .oasis-method,
+  .oasis-contact {
+    padding-block: 76px;
+  }
+
+  .oasis-home .aqua2-nav {
+    width: calc(100% - 36px);
+  }
+
+  .oasis-hero {
+    min-height: 720px;
+  }
+
+  .oasis-hero-shade {
+    background:
+      linear-gradient(0deg, rgba(4, 18, 27, 0.98) 0%, rgba(4, 18, 27, 0.88) 67%, rgba(4, 18, 27, 0.45)),
+      linear-gradient(90deg, rgba(4, 18, 27, 0.68), rgba(4, 18, 27, 0.14));
+  }
+
+  .oasis-hero-inner {
+    padding: 170px 0 44px;
+  }
+
+  .oasis-hero h1 {
+    font-size: clamp(3.3rem, 11vw, 5.2rem);
+  }
+
+  .oasis-outcome-grid,
+  .oasis-heading,
+  .oasis-tools-intro,
+  .oasis-method-grid,
+  .oasis-about-grid,
+  .oasis-contact-grid,
+  .oasis-media {
+    grid-template-columns: 1fr;
+  }
+
+  .oasis-outcome-grid article {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--oasis-line);
+    padding: 26px 0;
+  }
+
+  .oasis-outcome-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .oasis-heading,
+  .oasis-tools-intro {
+    gap: 28px;
+  }
+
+  .oasis-heading h2,
+  .oasis-tools-intro h2,
+  .oasis-method h2,
+  .oasis-media h2,
+  .oasis-about h2,
+  .oasis-contact h2 {
+    font-size: clamp(2.65rem, 9vw, 4rem);
+  }
+
+  .oasis-work-grid,
+  .oasis-tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oasis-work-card:last-child {
+    grid-column: auto;
+  }
+
+  .oasis-work-card:last-child .oasis-work-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .oasis-work-copy > p:not(.oasis-card-label) {
+    min-height: 0;
+  }
+
+  .oasis-service-list article {
+    grid-template-columns: 38px 1fr;
+    gap: 18px;
+  }
+
+  .oasis-service-list article > p,
+  .oasis-service-end {
+    grid-column: 2;
+  }
+
+  .oasis-service-end {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .oasis-tools-intro .oasis-kicker {
+    grid-column: auto;
+    margin-bottom: -12px;
+  }
+
+  .oasis-method-grid,
+  .oasis-about-grid,
+  .oasis-contact-grid {
+    gap: 44px;
+  }
+
+  .oasis-media-image {
+    min-height: 420px;
+  }
+
+  .oasis-media-copy {
+    padding: 68px 20px;
+  }
+
+  .oasis-home .aqua2-links {
+    gap: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .oasis-shell {
+    width: calc(100% - 28px);
+  }
+
+  .oasis-hero {
+    min-height: 740px;
+  }
+
+  .oasis-hero-image {
+    object-position: 64% center;
+  }
+
+  .oasis-hero-inner {
+    padding-bottom: 34px;
+  }
+
+  .oasis-hero h1 {
+    font-size: 3.12rem;
+  }
+
+  .oasis-hero-copy {
+    font-size: 1rem;
+  }
+
+  .oasis-actions {
+    display: grid;
+  }
+
+  .oasis-button {
+    width: 100%;
+  }
+
+  .oasis-hero-detail {
+    display: grid;
+    margin-top: 30px;
+  }
+
+  .oasis-work-grid,
+  .oasis-tool-grid {
+    margin-top: 40px;
+  }
+
+  .oasis-work-copy,
+  .oasis-tool-card,
+  .oasis-contact .aqua-enquiry {
+    padding: 22px;
+  }
+
+  .oasis-tool-card {
+    min-height: 350px;
+  }
+
+  .oasis-tool-card h3 {
+    margin-top: 64px;
+    font-size: 2.25rem;
+  }
+
+  .oasis-tool-card strong {
+    bottom: 24px;
+    left: 22px;
+  }
+
+  .oasis-service-list {
+    margin-top: 42px;
+  }
+
+  .oasis-service-list article {
+    padding: 26px 0;
+  }
+
+  .oasis-media-image {
+    min-height: 300px;
+  }
+
+  .oasis-contact .aqua-form-pair,
+  .oasis-contact .aqua-checks {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* AquaOasis starting tools */
+.oasis-tool-hero {
+  position: relative;
+  display: flex;
+  min-height: 690px;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--oasis-night);
+  color: #fff;
+}
+
+.oasis-tool-hero > img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.oasis-tool-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 18, 26, 0.97) 0%, rgba(3, 18, 26, 0.88) 48%, rgba(3, 18, 26, 0.26) 82%),
+    linear-gradient(0deg, rgba(3, 18, 26, 0.82), transparent 60%);
+}
+
+.oasis-tool-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 190px 0 62px;
+}
+
+.oasis-tool-hero .oasis-kicker {
+  color: #96d9d2;
+}
+
+.oasis-tool-hero h1 {
+  max-width: 980px;
+  margin: 18px 0 24px;
+  color: #fff;
+  font-size: clamp(4rem, 6.5vw, 6.6rem);
+  line-height: 0.95;
+}
+
+.oasis-tool-hero-inner > p:not(.oasis-kicker) {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.12rem;
+  line-height: 1.68;
+}
+
+.oasis-tool-hero-inner > a {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 18px;
+  margin-top: 32px;
+  border-radius: 5px;
+  background: var(--oasis-yellow);
+  color: var(--oasis-ink);
+  padding: 0 22px;
+  font-weight: 900;
+}
+
+.oasis-tool-hero-inner > a:hover {
+  background: #fff;
+}
+
+.oasis-tool-page-section {
+  padding: 110px 0;
+  background: #fff;
+}
+
+.oasis-tool-page-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.68fr);
+  gap: 80px;
+  align-items: end;
+}
+
+.oasis-tool-page-heading h2,
+.oasis-tool-result h2 {
+  margin: 16px 0 0;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.98;
+}
+
+.oasis-tool-page-heading > p {
+  margin: 0;
+  color: #5c696d;
+  line-height: 1.75;
+}
+
+.oasis-check-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--oasis-line);
+  border-left: 1px solid var(--oasis-line);
+  margin-top: 62px;
+}
+
+.oasis-check-grid article {
+  min-height: 240px;
+  border-right: 1px solid var(--oasis-line);
+  border-bottom: 1px solid var(--oasis-line);
+  padding: 28px;
+}
+
+.oasis-check-grid article > span,
+.oasis-os-list article > span {
+  color: var(--oasis-teal);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.oasis-check-grid h3 {
+  margin: 46px 0 10px;
+  font-size: 1.4rem;
+}
+
+.oasis-check-grid p {
+  margin: 0;
+  color: #607075;
+  line-height: 1.65;
+}
+
+.oasis-tool-result {
+  padding: 104px 0;
+  background: var(--oasis-sea);
+}
+
+.oasis-tool-result-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(430px, 0.85fr);
+  gap: 90px;
+  align-items: center;
+}
+
+.oasis-tool-result ul {
+  margin: 0;
+  border-top: 1px solid #b7cbc6;
+  padding: 0;
+  list-style: none;
+}
+
+.oasis-tool-result li {
+  border-bottom: 1px solid #b7cbc6;
+  padding: 17px 0;
+  color: #43595c;
+}
+
+.oasis-tool-result li::before {
+  margin-right: 12px;
+  color: var(--oasis-teal);
+  content: "✓";
+}
+
+.oasis-os-list {
+  margin-top: 62px;
+  border-top: 1px solid var(--oasis-line);
+}
+
+.oasis-os-list article {
+  display: grid;
+  grid-template-columns: 50px minmax(190px, 0.7fr) minmax(280px, 1fr);
+  gap: 26px;
+  border-bottom: 1px solid var(--oasis-line);
+  padding: 30px 0;
+}
+
+.oasis-os-list h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.oasis-os-list p,
+.oasis-result-copy p {
+  margin: 0;
+  color: #5f6e72;
+  line-height: 1.7;
+}
+
+.oasis-result-copy a,
+.oasis-tool-contact .oasis-contact-grid > div > a {
+  display: inline-flex;
+  margin-top: 24px;
+  color: var(--oasis-teal);
+  font-weight: 900;
+}
+
+.oasis-tool-contact {
+  scroll-margin-top: 118px;
+}
+
+@media (max-width: 850px) {
+  .oasis-tool-hero {
+    min-height: 700px;
+  }
+
+  .oasis-tool-hero-shade {
+    background:
+      linear-gradient(0deg, rgba(3, 18, 26, 0.98) 0%, rgba(3, 18, 26, 0.86) 70%, rgba(3, 18, 26, 0.42)),
+      linear-gradient(90deg, rgba(3, 18, 26, 0.62), transparent);
+  }
+
+  .oasis-tool-hero-inner {
+    padding: 170px 0 46px;
+  }
+
+  .oasis-tool-hero h1 {
+    font-size: clamp(3.2rem, 11vw, 5rem);
+  }
+
+  .oasis-tool-page-section,
+  .oasis-tool-result {
+    padding: 76px 0;
+  }
+
+  .oasis-tool-page-heading,
+  .oasis-tool-result-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .oasis-check-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .oasis-os-list article {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .oasis-os-list p {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .oasis-tool-hero {
+    min-height: 730px;
+  }
+
+  .oasis-tool-hero h1 {
+    font-size: 3rem;
+  }
+
+  .oasis-tool-hero-inner > p:not(.oasis-kicker) {
+    font-size: 1rem;
+  }
+
+  .oasis-tool-hero-inner > a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .oasis-check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oasis-check-grid article {
+    min-height: 210px;
+    padding: 22px;
   }
 }

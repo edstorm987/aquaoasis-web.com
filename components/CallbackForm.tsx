@@ -30,6 +30,7 @@ export function CallbackForm({
         contactMethod: "call",
         services: ["Callback request"],
         message: String(formData.get("message") ?? ""),
+        consent: formData.get("contactConsent") === "yes",
       });
       form.reset();
       setSubmitted(true);
@@ -44,6 +45,7 @@ export function CallbackForm({
       className={compact ? "callback-form compact" : "callback-form"}
       aria-label="Request a call back"
       onSubmit={handleSubmit}
+      data-aqua-form="Callback request"
     >
       {submitted ? (
         <div className="form-success" role="status">
@@ -87,7 +89,7 @@ export function CallbackForm({
       </label>
 
       <label className="form-consent">
-        <input name="contactConsent" type="checkbox" required />
+        <input name="contactConsent" type="checkbox" value="yes" required />
         <span>
           I agree that AquaOasis-Web can contact me back about my enquiry. See
           our <a href="/privacy-policy">Privacy Policy</a>.

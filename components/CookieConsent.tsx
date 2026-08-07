@@ -41,9 +41,9 @@ export function CookieConsent() {
       <div>
         <strong>Cookie choices</strong>
         <p>
-          We only use essential site storage right now. When analytics, Google
-          tags, or pixels are added, they will only run if you accept
-          non-essential cookies.
+          Necessary storage keeps this site working. First-party Aqua analytics,
+          marketing measurement and future third-party tags stay off unless you
+          choose to allow the relevant category.
         </p>
       </div>
       <div className="cookie-actions">

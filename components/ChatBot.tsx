@@ -33,6 +33,7 @@ export function ChatBot() {
         contactMethod: "chat",
         services: ["Website chat"],
         message: String(formData.get("message") ?? ""),
+        consent: formData.get("contactConsent") === "yes",
       });
       form.reset();
       setSubmitted(true);
@@ -79,7 +80,7 @@ export function ChatBot() {
               </button>
             </div>
           ) : (
-            <form className="chat-form" onSubmit={handleSubmit}>
+            <form className="chat-form" onSubmit={handleSubmit} data-aqua-form="Website chat">
               <label>
                 First name *
                 <input name="firstName" autoComplete="given-name" placeholder="Your first name" required />
@@ -121,7 +122,7 @@ export function ChatBot() {
                 />
               </label>
               <label className="chat-consent">
-                <input name="contactConsent" type="checkbox" required />
+                <input name="contactConsent" type="checkbox" value="yes" required />
                 <span>
                   I agree that AquaOasis-Web can contact me back about my
                   message. See our <a href="/privacy-policy">Privacy Policy</a>.

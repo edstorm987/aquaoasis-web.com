@@ -14,7 +14,7 @@ const galleries: Record<string, string[]> = {
     "/work/beast-commerce/storefront.png",
     "/work/beast-commerce/operations.png",
   ],
-  aquacrm: ["/images/aquaoasis-card-audit.png"],
+  aquacrm: ["/work/beast-commerce/operations.png"],
   "demo-media": [
     "/work/demo-media/overview.png",
     "/work/demo-media/experience.jpg",
@@ -58,18 +58,6 @@ export default async function WorkDetailPage({
             operational thinking. It connects what the customer sees with the
             tools, information and decisions required behind it.
           </p>
-          {"previewUrl" in work ? (
-            <a
-              className="aqua3-demo-link"
-              href={
-                process.env.NEXT_PUBLIC_DEMO_MEDIA_URL ?? work.previewUrl
-              }
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open the live interactive demo ↗
-            </a>
-          ) : null}
         </div>
         <ul>
           {work.areas.map((area) => <li key={area}>{area}</li>)}

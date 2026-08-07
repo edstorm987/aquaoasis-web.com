@@ -26,6 +26,7 @@ export function ContactForm() {
             ? `Other contact method: ${String(formData.get("otherContactMethod"))}`
             : "",
         ].filter(Boolean).join("\n"),
+        consent: formData.get("contactConsent") === "yes",
       });
       form.reset();
       setSubmitted(true);
@@ -39,6 +40,7 @@ export function ContactForm() {
       className="callback-form contact-form"
       aria-label="Contact AquaOasis-Web"
       onSubmit={handleSubmit}
+      data-aqua-form="Contact form"
     >
       {submitted ? (
         <div className="form-success" role="status">
@@ -79,11 +81,11 @@ export function ContactForm() {
 
       <label>
         Best way to get in touch *
-        <select name="contactPreference" defaultValue="Phone call" required>
-          <option>Phone call</option>
-          <option>Text message</option>
-          <option>Email</option>
-          <option>Other</option>
+        <select name="contactPreference" defaultValue="call" required>
+          <option value="call">Phone call</option>
+          <option value="text">Text message</option>
+          <option value="email">Email</option>
+          <option value="other">Other</option>
         </select>
       </label>
 
@@ -107,7 +109,7 @@ export function ContactForm() {
       </label>
 
       <label className="form-consent">
-        <input name="contactConsent" type="checkbox" required />
+        <input name="contactConsent" type="checkbox" value="yes" required />
         <span>
           I agree that AquaOasis-Web can contact me back about my enquiry. See
           our <a href="/privacy-policy">Privacy Policy</a>.

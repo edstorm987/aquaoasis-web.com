@@ -13,8 +13,8 @@ export function AquaSiteFooter({
           <strong>AquaOasis-Web</strong>
         </Link>
         <p>
-          An all-in-one digital agency for visibility, original media,
-          converting websites, campaigns and bespoke software.
+          Practical websites, Google visibility, campaigns, business media and
+          custom software, joined around the work your business needs next.
         </p>
         <a
           className="aqua2-group"
@@ -34,13 +34,14 @@ export function AquaSiteFooter({
         </a>
       </div>
       <nav aria-label="Footer navigation">
-        <Link href="/solutions">Solutions</Link>
+        <Link href="/#services">Services</Link>
         <Link href="/websites">Websites</Link>
         <Link href="/local-visibility">Local visibility</Link>
         <Link href="/software">Software</Link>
         <Link href="/growth">Growth</Link>
         <Link href="/work">Work</Link>
-        <Link href="/enterprise">Enterprise</Link>
+        <Link href="/health-check">Business Health Check</Link>
+        <Link href="/business-os">Business OS</Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/privacy-policy">Privacy</Link>

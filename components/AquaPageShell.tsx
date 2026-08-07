@@ -7,7 +7,7 @@ const milesymediaUrl =
 
 export function AquaPageShell({ children }: { children: ReactNode }) {
   return (
-    <main className="aqua2-site">
+    <main className="aqua2-site oasis-home">
       <AquaSiteHeader />
       {children}
       <AquaSiteFooter

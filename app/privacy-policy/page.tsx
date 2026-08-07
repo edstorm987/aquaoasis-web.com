@@ -39,16 +39,17 @@ export default function PrivacyPolicyPage() {
             </p>
             <h2>Cookies and tracking</h2>
             <p>
-              We only use essential site storage right now, such as remembering
-              your cookie choice. We are not currently running analytics cookies,
-              Google Tags, ad pixels, or marketing tracking.
+              Necessary storage remembers your privacy choice and supports core
+              site functions. Optional first-party Aqua analytics can measure
+              page use, performance, errors and form completion events, but it
+              does not collect the contents you type into forms.
             </p>
             <p>
-              If analytics, Google Tags, Meta pixels, or similar tools are added
-              later, they should be treated as non-essential cookies and only
-              run after you accept them. You can reject non-essential cookies
-              and still use the website. You can update your choices any time
-              from the Cookie settings link in the footer.
+              Analytics and marketing events remain blocked until you allow the
+              relevant category. Any future Google Tags, Meta pixels or similar
+              tools must use the same permission. You can reject non-essential
+              storage and still use the website, then change your choice from
+              Cookie settings at any time.
             </p>
             <a className="primary-button privacy-cookie-button" href="/cookie-settings">
               Manage cookie choices

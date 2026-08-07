@@ -35,7 +35,7 @@ export const aquaWork = [
     title: "AquaCRM",
     summary:
       "A connected workspace for leads, clients, finance, fulfilment, support, portals and development visibility.",
-    image: "/images/aquaoasis-card-audit.png",
+    image: "/work/beast-commerce/operations.png",
     imageAlt: "AquaCRM operational dashboard",
     areas: [
       "Lead-to-client pipeline",
@@ -52,7 +52,6 @@ export const aquaWork = [
       "A complete media studio experience with immersive service discovery, galleries, shoot stories, enquiries and a branded client journey.",
     image: "/work/demo-media/overview.png",
     imageAlt: "Demo Media photography and film website concept",
-    previewUrl: "http://localhost:3036",
     areas: [
       "Immersive single-page service discovery",
       "Photography, film, aerial and studio journeys",

@@ -10,6 +10,7 @@ type SubmitAquaEnquiryInput = {
   campaign?: string;
   sourceUrl?: string;
   website?: string;
+  consent: boolean;
 };
 
 export async function submitAquaEnquiry(input: SubmitAquaEnquiryInput) {
@@ -28,7 +29,7 @@ export async function submitAquaEnquiry(input: SubmitAquaEnquiryInput) {
         message: input.message ?? "",
         sourceUrl: input.sourceUrl ?? window.location.href,
         campaign: input.campaign ?? new URLSearchParams(window.location.search).get("utm_campaign") ?? "",
-        consent: true,
+        consent: input.consent,
         website: input.website ?? "",
       }),
     },

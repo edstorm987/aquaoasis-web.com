@@ -1,92 +1,97 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AquaEnquiryForm } from "@/components/AquaEnquiryForm";
 import { AquaSiteFooter } from "@/components/AquaSiteFooter";
 import { AquaSiteHeader } from "@/components/AquaSiteHeader";
 
-const stages = [
+const outcomes = [
   {
     number: "01",
-    href: "/local-visibility",
-    label: "Get found",
-    title: "Google and local visibility",
-    copy: "Put the right details, proof, photography and contact routes where nearby customers are already searching.",
-    points: ["Google Business Profile setup or rebuild", "Reviews and local trust", "Accurate services, areas and contact routes"],
+    title: "More people find you",
+    copy: "A stronger Google presence, a credible website and campaigns that put you in front of the right customers.",
   },
   {
     number: "02",
-    href: "/#media",
-    label: "Look the part",
-    title: "Photography, film and creative production",
-    copy: "Original work from Milesymedia gives the website, campaign and brand something real to say and something worth noticing.",
-    points: ["Commercial photography and film", "Events, people, property and products", "One brief across production and digital delivery"],
+    title: "More people choose you",
+    copy: "Clear offers, original photography and easier journeys that give people a reason to act.",
   },
   {
     number: "03",
-    href: "/websites",
-    label: "Get online",
-    title: "Simple websites that do the job",
-    copy: "A focused, credible website for businesses that need to look right, explain the offer and start receiving enquiries.",
-    points: ["Website builds from £899", "Mobile-first design and copy", "Accessible, fast and easy to manage"],
-  },
-  {
-    number: "04",
-    href: "/websites",
-    label: "Get chosen",
-    title: "Conversion websites and ecommerce",
-    copy: "Deeper strategy, customer journeys, booking or buying flows and creative direction shaped around what helps people decide.",
-    points: ["Research-led structure and messaging", "Bookings, payments and ecommerce", "Measurement built in from launch"],
-  },
-  {
-    number: "05",
-    href: "/software",
-    label: "Get connected",
-    title: "Software, portals and automation",
-    copy: "When a website is only the front door, we build the systems behind it: customer portals, internal tools and connected workflows.",
-    points: ["Bespoke portals and operational software", "Automations and integrations", "One connected customer experience"],
-  },
-  {
-    number: "06",
-    href: "/growth",
-    label: "Keep growing",
-    title: "Campaigns and optimisation",
-    copy: "SEO, content, social and paid campaigns supported by real conversion data, so effort follows evidence instead of opinion.",
-    points: ["Campaign direction and delivery", "Conversion testing and reporting", "Ongoing improvements across the journey"],
+    title: "Less work falls through",
+    copy: "Connected forms, software and simple systems that keep enquiries, customers and delivery moving.",
   },
 ];
 
-const builds = [
+const services = [
   {
-    image: "/images/aquaoasis-card-profile.png",
+    label: "Get found",
+    title: "Google and local visibility",
+    copy: "Set up or rebuild your Google Business Profile, make your information accurate and turn local searches into calls, visits and enquiries.",
+    includes: "Google profile, local pages, reviews and search foundations",
     href: "/local-visibility",
-    alt: "Local visibility, profile and performance interfaces",
-    eyebrow: "Local businesses",
-    title: "From invisible to easy to choose",
-    copy: "Google presence, reviews, a convincing website and clear enquiry routes working as one.",
   },
   {
-    image: "/images/aquaoasis-hero.png",
+    label: "Get online",
+    title: "Websites and ecommerce",
+    copy: "A clear digital home that looks like your business, works on every screen and makes the next step obvious.",
+    includes: "Starter sites, bookings, ecommerce and larger web platforms",
     href: "/websites",
-    alt: "Website planning and management workspace on a laptop",
-    eyebrow: "Websites and commerce",
-    title: "A digital home built around the decision",
-    copy: "From a sharp first website to ecommerce, bookings, memberships and content-rich platforms.",
   },
   {
-    image: "/images/aquaoasis-card-audit.png",
-    href: "/software",
-    alt: "Website audit and performance dashboard",
-    eyebrow: "Software and growth",
-    title: "The systems behind the screen",
-    copy: "Portals, dashboards, automations and campaigns that remove busywork and reveal what needs attention.",
-  },
-  {
-    image: "/work/demo-media/experience.jpg",
+    label: "Get noticed",
+    title: "Photography and content",
+    copy: "Original business photography, film and campaign assets planned with Milesymedia, so the work feels like you rather than a stock template.",
+    includes: "People, places, products, events and campaign production",
     href: "/#media",
-    alt: "Original Milesymedia photography and visual production",
-    eyebrow: "Photography and film",
-    title: "Creative production built for the campaign",
-    copy: "Original photography, film and aerial work planned alongside the website, launch and places it needs to perform.",
   },
+  {
+    label: "Get customers",
+    title: "Campaigns and growth",
+    copy: "Practical SEO, advertising, email and social campaigns with proper tracking, so you can see what is earning attention and what is not.",
+    includes: "SEO, paid campaigns, content, conversion and reporting",
+    href: "/growth",
+  },
+  {
+    label: "Run better",
+    title: "Software and automation",
+    copy: "When off-the-shelf tools stop fitting, we build the portal, dashboard or workflow your team and customers actually need.",
+    includes: "Customer portals, internal tools, automation and AquaCRM",
+    href: "/software",
+  },
+];
+
+const work = [
+  {
+    image: "/work/ocean-boulevard/website.png",
+    alt: "Ocean Boulevard public website",
+    type: "Hospitality website and operations",
+    title: "Ocean Boulevard",
+    copy: "A public venue website connected to the operational tools used behind the scenes.",
+    href: "/work/ocean-boulevard",
+  },
+  {
+    image: "/work/beast-commerce/storefront.png",
+    alt: "Beast Commerce ecommerce storefront",
+    type: "Ecommerce and fulfilment",
+    title: "Beast Commerce",
+    copy: "A customer storefront joined to products, orders and the team responsible for delivery.",
+    href: "/work/beast-commerce",
+  },
+  {
+    image: "/work/demo-media/overview.png",
+    alt: "Demo Media photography website concept",
+    type: "Media website concept",
+    title: "Demo Media",
+    copy: "An immersive service, gallery and enquiry experience built to show what a media brand could become.",
+    href: "/work/demo-media",
+  },
+];
+
+const principles = [
+  "Build what the business needs, not what makes the proposal bigger.",
+  "Explain the work plainly and keep the owner close to every decision.",
+  "Measure the customer journey, then improve it with evidence.",
+  "Leave the business clearer, more capable and easier to run.",
 ];
 
 export default function Home() {
@@ -94,211 +99,254 @@ export default function Home() {
     process.env.NEXT_PUBLIC_MILESYMEDIA_URL ?? "https://milesymedia.com";
 
   return (
-    <main className="aqua2-site">
+    <main className="aqua2-site oasis-home">
       <AquaSiteHeader />
 
-      <section className="aqua2-hero">
+      <section className="oasis-hero">
         <Image
-          src="/images/aquaoasis-hero-luxury.png"
-          alt="Connected website experiences emerging from a digital landscape"
+          src="/work/beast-commerce/operations.png"
+          alt="A connected business operations workspace built by AquaOasis-Web"
           fill
           priority
           sizes="100vw"
-          className="aqua2-hero-image"
+          className="oasis-hero-image"
         />
-        <div className="aqua2-hero-shade" />
-        <div className="aqua2-hero-inner">
-          <p className="aqua2-kicker">Media · websites · marketing · software</p>
-          <h1>The all-in-one digital agency.</h1>
-          <p className="aqua2-hero-copy">
-            Get found, look unmistakably like yourself and turn attention into
-            action. AquaOasis-Web joins strategy, Milesymedia production,
-            converting websites, campaigns and bespoke software around one
-            commercial goal.
+        <div className="oasis-hero-shade" />
+        <div className="oasis-shell oasis-hero-inner">
+          <p className="oasis-kicker">A practical digital agency</p>
+          <h1>Get your business online. Then make it work harder.</h1>
+          <p className="oasis-hero-copy">
+            Websites, Google visibility, campaigns, business photography and
+            custom software from one team. Start with the problem in front of
+            you. We will make the next step clear.
           </p>
-          <div className="aqua2-actions">
-            <a href="#contact">Tell us what you need <span aria-hidden="true">→</span></a>
-            <a href="#solutions">Explore the journey</a>
+          <div className="oasis-actions">
+            <a className="oasis-button oasis-button-primary" href="#contact">
+              Start a project <span aria-hidden="true">→</span>
+            </a>
+            <a className="oasis-button oasis-button-ghost" href="#work">
+              See our work
+            </a>
           </div>
-          <div className="aqua2-hero-note">
-            <span>Accessible from day one</span>
-            <span>Built around real customers</span>
-            <span>Ready to grow when you are</span>
+          <div className="oasis-hero-detail" aria-label="Who AquaOasis-Web works with">
+            <span>Suffolk based</span>
+            <span>Built for small businesses and growing teams</span>
+            <span>Single projects or ongoing support</span>
           </div>
         </div>
       </section>
 
-      <section className="aqua2-promise" aria-label="AquaOasis-Web approach">
-        <p>Enter the digital age.</p>
-        <p>Become the obvious choice.</p>
-        <p>Stay ahead without carrying it all yourself.</p>
-      </section>
-
-      <section id="solutions" className="aqua2-section aqua2-solutions">
-        <div className="aqua2-section-heading">
-          <div>
-            <p className="aqua2-kicker">Start where you are</p>
-          <h2>One partner from first impression to full digital operation.</h2>
-          </div>
-          <p>
-            You do not need to buy everything. We identify the shortest useful
-            next step, build it properly and leave room for what comes next.
-          </p>
-        </div>
-
-        <div className="aqua2-stage-list">
-          {stages.map((stage) => (
-            <article key={stage.number} className="aqua2-stage">
-              <div className="aqua2-stage-number">{stage.number}</div>
+      <section className="oasis-outcomes" aria-label="What AquaOasis-Web helps improve">
+        <div className="oasis-shell oasis-outcome-grid">
+          {outcomes.map((outcome) => (
+            <article key={outcome.number}>
+              <span>{outcome.number}</span>
               <div>
-                <p className="aqua2-stage-label">{stage.label}</p>
-                <h3>{stage.title}</h3>
+                <h2>{outcome.title}</h2>
+                <p>{outcome.copy}</p>
               </div>
-              <p className="aqua2-stage-copy">{stage.copy}</p>
-              <ul>
-                {stage.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
-              <a href={stage.href} aria-label={`Explore ${stage.title}`}>Explore this stage →</a>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="method" className="aqua2-data">
-        <div className="aqua2-data-copy">
-          <p className="aqua2-kicker">Data decides design</p>
-          <h2>Good-looking is the baseline. Useful is the point.</h2>
-          <p>
-            Creative direction gives the brand character. Customer evidence gives
-            the experience purpose. We combine both, then measure what people find,
-            understand and act on.
-          </p>
+      <section id="work" className="oasis-section oasis-work">
+        <div className="oasis-shell">
+          <div className="oasis-heading">
+            <div>
+              <p className="oasis-kicker">Selected work</p>
+              <h2>See the front door. Then see what runs behind it.</h2>
+            </div>
+            <div>
+              <p>
+                We connect the public experience to the practical systems that
+                make it useful. These are real builds and clearly labelled
+                concepts, not borrowed mockups or invented results.
+              </p>
+              <Link href="/work">View every project →</Link>
+            </div>
+          </div>
+          <div className="oasis-work-grid">
+            {work.map((project) => (
+              <Link className="oasis-work-card" href={project.href} key={project.title}>
+                <div className="oasis-work-image">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    sizes="(min-width: 900px) 33vw, 100vw"
+                  />
+                </div>
+                <div className="oasis-work-copy">
+                  <p className="oasis-card-label">{project.type}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.copy}</p>
+                  <span>Open project →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="oasis-section oasis-services">
+        <div className="oasis-shell">
+          <div className="oasis-heading">
+            <div>
+              <p className="oasis-kicker">What we do</p>
+              <h2>Everything needed to get online, get chosen and keep moving.</h2>
+            </div>
+            <p>
+              You do not need every service. We find the smallest useful move,
+              make it properly and keep the pieces connected as the business
+              grows.
+            </p>
+          </div>
+          <div className="oasis-service-list">
+            {services.map((service, index) => (
+              <article key={service.title}>
+                <div className="oasis-service-index">{String(index + 1).padStart(2, "0")}</div>
+                <div>
+                  <p className="oasis-card-label">{service.label}</p>
+                  <h3>{service.title}</h3>
+                </div>
+                <p>{service.copy}</p>
+                <div className="oasis-service-end">
+                  <span>{service.includes}</span>
+                  <Link href={service.href} aria-label={`Explore ${service.title}`}>
+                    Explore <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="tools" className="oasis-tools">
+        <div className="oasis-shell">
+          <div className="oasis-tools-intro">
+            <p className="oasis-kicker">Start before you buy</p>
+            <h2>First, work out what is actually holding the business back.</h2>
+            <p>
+              Our two starting tools turn a vague feeling that something needs
+              fixing into a useful picture of what to do next.
+            </p>
+          </div>
+          <div className="oasis-tool-grid">
+            <Link href="/health-check" className="oasis-tool-card">
+              <span className="oasis-tool-number">01</span>
+              <p className="oasis-card-label">Free starting point</p>
+              <h3>Business Health Check</h3>
+              <p>
+                Review how customers find you, choose you and move through the
+                business. Leave with the gaps and priorities in plain English.
+              </p>
+              <strong>Run the health check →</strong>
+            </Link>
+            <Link href="/business-os" className="oasis-tool-card oasis-tool-card-dark">
+              <span className="oasis-tool-number">02</span>
+              <p className="oasis-card-label">For a business ready to organise</p>
+              <h3>Business OS</h3>
+              <p>
+                Bring goals, leads, delivery, money and the repeatable work into
+                one operating plan your team can actually follow.
+              </p>
+              <strong>Explore Business OS →</strong>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="oasis-method">
+        <div className="oasis-shell oasis-method-grid">
+          <div>
+            <p className="oasis-kicker">How it works</p>
+            <h2>We learn how the business moves. Then we improve the part that matters.</h2>
+          </div>
           <ol>
-            <li><span>01</span><div><strong>Understand</strong><p>Your offer, customers, competition and current blind spots.</p></div></li>
-            <li><span>02</span><div><strong>Build</strong><p>The clearest journey, with the right words, visuals and technology.</p></div></li>
-            <li><span>03</span><div><strong>Learn</strong><p>Track real behaviour and improve what matters after launch.</p></div></li>
+            <li>
+              <span>01</span>
+              <div><strong>Look properly</strong><p>We learn the offer, the customer journey and where time or enquiries are being lost.</p></div>
+            </li>
+            <li>
+              <span>02</span>
+              <div><strong>Build the useful thing</strong><p>We agree the clearest scope, create it with you and avoid unnecessary extras.</p></div>
+            </li>
+            <li>
+              <span>03</span>
+              <div><strong>Measure and improve</strong><p>Once it is live, the data shows where the next useful improvement belongs.</p></div>
+            </li>
           </ol>
         </div>
-        <div className="aqua2-data-visual">
+      </section>
+
+      <section id="media" className="oasis-media">
+        <div className="oasis-media-image">
           <Image
-            src="/images/aquaoasis-card-audit.png"
-            alt="Website experience and performance audit"
+            src="/work/demo-media/overview.png"
+            alt="A media website experience designed for photography and film"
             fill
-            sizes="(min-width: 900px) 50vw, 100vw"
-            className="aqua2-cover"
+            sizes="(min-width: 900px) 52vw, 100vw"
           />
         </div>
+        <div className="oasis-media-copy">
+          <p className="oasis-kicker">Photography and production by Milesymedia</p>
+          <h2>Your website should not look like everybody else&apos;s.</h2>
+          <p>
+            When the work needs original photography, film or campaign content,
+            Milesymedia joins the same brief. The visuals are planned for the
+            website, Google profile, advert and places your customers will
+            actually see them.
+          </p>
+          <a href={milesymediaUrl} target="_blank" rel="noopener noreferrer">
+            Meet Milesymedia <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </section>
 
-      <section id="work" className="aqua2-section aqua2-builds">
-        <div className="aqua2-section-heading">
+      <section id="about" className="oasis-section oasis-about">
+        <div className="oasis-shell oasis-about-grid">
           <div>
-            <p className="aqua2-kicker">What we build</p>
-            <h2>Simple when simple is enough. Serious when it needs to scale.</h2>
+            <p className="oasis-kicker">The mission</p>
+            <h2>Good digital work should feel clear, useful and within reach.</h2>
           </div>
-          <p>
-            Every build should feel true to the business, clear to the customer
-            and proportionate to the opportunity.
-          </p>
-        </div>
-        <div className="aqua2-build-grid">
-          {builds.map((build) => (
-            <article key={build.title}>
-              <div className="aqua2-build-image">
-                <Image src={build.image} alt={build.alt} fill sizes="(min-width: 900px) 33vw, 100vw" className="aqua2-cover" />
-              </div>
-              <p className="aqua2-kicker">{build.eyebrow}</p>
-              <h3>{build.title}</h3>
-              <p>{build.copy}</p>
-              <a href={build.href}>Explore this work →</a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="media" className="aqua2-media-partner" aria-labelledby="media-partner-title">
-        <div className="aqua2-media-partner-icon" aria-hidden="true">
-          M
-        </div>
-        <div>
-          <p className="aqua2-kicker">Milesymedia photography and production</p>
-          <h2 id="media-partner-title">
-            Original visuals are part of the system, not an afterthought.
-          </h2>
-          <p>
-            The people behind Milesymedia plan photography, film and aerial work
-            alongside your website and campaigns. That means one direction, one
-            joined-up brief and assets created for the exact places they need to
-            earn attention.
-          </p>
-        </div>
-        <a href={milesymediaUrl} target="_blank" rel="noopener noreferrer">
-          Explore Milesymedia
-          <span aria-hidden="true">↗</span>
-        </a>
-      </section>
-
-      <section className="aqua2-access">
-        <div>
-          <p className="aqua2-kicker">Built for real people</p>
-          <h2>Accessible is not an upgrade.</h2>
-        </div>
-        <div>
-          <p>
-            Clear language, readable contrast, keyboard access, sensible motion
-            and responsive layouts are part of the build. The web should work for
-            more people, on more devices, in more situations.
-          </p>
-          <p>
-            Our starting options keep professional digital foundations within
-            reach. Larger work is scoped around the value and complexity involved,
-            not dressed up with unnecessary features.
-          </p>
-        </div>
-      </section>
-
-      <section id="enterprise" className="aqua2-enterprise">
-        <Image
-          src="/images/aquaoasis-hero-luxury.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="aqua2-cover"
-        />
-        <div className="aqua2-enterprise-shade" />
-        <div className="aqua2-enterprise-inner">
-          <p className="aqua2-kicker">Enterprise and partnerships</p>
-          <h2>Need a team that can see the whole system?</h2>
-          <p>
-            Bring us into a new platform, a transformation programme or an
-            established delivery team. We can lead the digital experience or work
-            alongside internal, creative and technical partners.
-          </p>
-          <a href="#contact">Start a partnership conversation →</a>
-        </div>
-      </section>
-
-      <section id="contact" className="aqua2-section aqua2-contact">
-        <div>
-          <p className="aqua2-kicker">Start with the real situation</p>
-          <h2>Tell us where you are. We will make the next step clear.</h2>
-          <p>
-            Choose everything that may be relevant. You do not need a polished
-            brief, and we will not force a larger solution when a smaller one will
-            do the job.
-          </p>
-          <div className="aqua2-contact-points">
-            <span>For new and established businesses</span>
-            <span>Single projects or ongoing partnership</span>
-            <span>One connected team across media, marketing, web and software</span>
+          <div className="oasis-about-copy">
+            <p className="oasis-about-lead">
+              AquaOasis-Web was started by Edward Hallam to give businesses one
+              dependable place for the public website and the systems behind it.
+              Close enough to understand the details. Capable enough to keep
+              building as the opportunity grows.
+            </p>
+            <ul>
+              {principles.map((principle) => <li key={principle}>{principle}</li>)}
+            </ul>
+            <Link href="/about">More about AquaOasis-Web →</Link>
           </div>
         </div>
-        <AquaEnquiryForm />
       </section>
 
-      <AquaSiteFooter
-        milesymediaUrl={milesymediaUrl}
-      />
+      <section id="contact" className="oasis-contact">
+        <div className="oasis-shell oasis-contact-grid">
+          <div>
+            <p className="oasis-kicker">Start with the real situation</p>
+            <h2>Tell us what is not working yet.</h2>
+            <p>
+              A half-formed idea is enough. Tell us where the business is now,
+              what you want to change and how you would prefer us to get in
+              touch. We will make the next step clear.
+            </p>
+            <div className="oasis-contact-notes">
+              <span>No polished brief required</span>
+              <span>Single project or ongoing help</span>
+              <span>Plain answer, practical next step</span>
+            </div>
+          </div>
+          <AquaEnquiryForm />
+        </div>
+      </section>
+
+      <AquaSiteFooter milesymediaUrl={milesymediaUrl} />
     </main>
   );
 }
