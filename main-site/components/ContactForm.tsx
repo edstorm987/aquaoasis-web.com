@@ -1,10 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import { resetAquaBotChallenge } from "./aquaBotChallenge";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  // AquaCRM refuses production enquiries without a submissionId; one per submission, reused on retry.
+  const submissionId = useRef<string | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -19,14 +22,20 @@ export function ContactForm() {
     const message = String(formData.get("message") || "").trim();
     const consent = formData.get("consent") === "yes";
 
+    submissionId.current ??= `aqua_sub_${crypto.randomUUID().replace(/-/g, "")}`;
+
     try {
       const response = await fetch(
-        process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT ?? "https://aqua-crm.com/api/public/brand-enquiry",
+        process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT
+          ?? (process.env.NODE_ENV === "production"
+            ? "https://www.aqua-crm.co.uk/api/public/brand-enquiry"
+            : "http://localhost:3032/api/public/brand-enquiry"),
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             brand: "aquaoasis-web",
+            submissionId: submissionId.current,
             name,
             phone,
             email: email || undefined,
@@ -36,16 +45,20 @@ export function ContactForm() {
             sourceUrl: window.location.href,
             campaign: "AquaOasis-Web main site enquiry",
             consent,
+            captchaToken: formData.get("captchaToken"),
           }),
         },
       );
 
       if (!response.ok) throw new Error("Could not send enquiry.");
 
+      submissionId.current = null;
       setSubmitted(true);
       form.reset();
     } catch {
       setError("Sorry, that did not send. Please email us directly.");
+    } finally {
+      resetAquaBotChallenge(form);
     }
   }
 
@@ -55,6 +68,7 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       aria-label="AquaOasis-Web enquiry form"
       data-aqua-form="AquaOasis-Web enquiry"
+      data-aqua-challenge-action="brand-enquiry"
     >
       {submitted ? (
         <div className="form-success" role="status">

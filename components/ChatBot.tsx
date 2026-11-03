@@ -1,144 +1,99 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { submitAquaEnquiry } from "./submitAquaEnquiry";
+import { submitAquaEnquiry, useSubmissionId } from "./submitAquaEnquiry";
+import { resetAquaBotChallenge } from "./aquaBotChallenge";
 
+/**
+ * The site's own chat, used until AquaCRM has an `aquaoasis-web` Aqua Bot.
+ * Once it does, set NEXT_PUBLIC_AQUA_BOT_ID=aquaoasis-web and the layout loads
+ * the AquaCRM embed instead (see AquaBotEmbed).
+ */
 export function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [phoneError, setPhoneError] = useState("");
-
-  function isValidPhoneNumber(value: string) {
-    const digitCount = value.replace(/\D/g, "").length;
-    return /^[0-9+().\s-]+$/.test(value) && digitCount >= 7 && digitCount <= 15;
-  }
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const submission = useSubmissionId();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const phone = String(formData.get("phone") ?? "");
+    const phone = String(formData.get("phone") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
 
-    if (!isValidPhoneNumber(phone)) {
-      setPhoneError("Please enter a valid phone number with no letters.");
+    if (!phone && !email) {
+      setError("Add a phone number or email so we can reply.");
+      return;
+    }
+    if (phone && !/^[+()\d\s.-]{7,25}$/.test(phone)) {
+      setError("Please enter a valid phone number with no letters.");
       return;
     }
 
-    setPhoneError("");
+    setError("");
+    setBusy(true);
     try {
       await submitAquaEnquiry({
+        submissionId: submission.current(),
+        channel: "chatbot",
         name: String(formData.get("firstName") ?? ""),
         phone,
-        email: String(formData.get("email") ?? ""),
+        email,
         contactMethod: "chat",
         services: ["Website chat"],
         message: String(formData.get("message") ?? ""),
+        captchaToken: String(formData.get("captchaToken") ?? ""),
         consent: formData.get("contactConsent") === "yes",
       });
+      submission.settle();
       form.reset();
       setSubmitted(true);
     } catch (cause) {
-      setPhoneError(cause instanceof Error ? cause.message : "Unable to send.");
+      setError(cause instanceof Error ? cause.message : "Unable to send.");
+    } finally {
+      setBusy(false);
+      resetAquaBotChallenge(form);
     }
   }
 
   return (
     <div className="chat-widget">
       {isOpen ? (
-        <section className="chat-panel" aria-label="AquaOasis-Web chat">
-          <div className="chat-panel-header">
+        <section className="chat-panel" aria-label="Chat with AquaOasis-Web">
+          <div className="chat-head">
             <div>
               <strong>AquaOasis-Web</strong>
-              <p>Leave a message and we will come back to you.</p>
+              <p>Leave a message. A real person replies, usually within a working day.</p>
             </div>
-            <button
-              aria-label="Close chat"
-              className="chat-close"
-              type="button"
-              onClick={() => setIsOpen(false)}
-            >
-              ×
-            </button>
+            <button aria-label="Close chat" className="chat-close" type="button" onClick={() => setIsOpen(false)}>×</button>
           </div>
-
-          {submitted ? (
-            <div className="chat-success" role="status">
-              <strong>Thanks for your message.</strong>
-              <p>We will get back to you as soon as we can.</p>
-              <a className="chat-call-button" href="tel:+447305410203">
-                Call us now
-              </a>
-              <button
-                className="chat-secondary-button"
-                type="button"
-                onClick={() => {
-                  setSubmitted(false);
-                  setPhoneError("");
-                }}
-              >
-                Send another message
-              </button>
-            </div>
-          ) : (
-            <form className="chat-form" onSubmit={handleSubmit} data-aqua-form="Website chat">
-              <label>
-                First name *
-                <input name="firstName" autoComplete="given-name" placeholder="Your first name" required />
-              </label>
-              <label>
-                Phone number *
-                <input
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  placeholder="Best number"
-                  pattern="[0-9+().\s-]{7,25}"
-                  aria-describedby={phoneError ? "chat-phone-error" : undefined}
-                  title="Please enter a valid phone number with no letters."
-                  required
-                />
-                {phoneError ? (
-                  <span className="chat-field-error" id="chat-phone-error">
-                    {phoneError}
-                  </span>
-                ) : null}
-              </label>
-              <label>
-                Email (optional)
-                <input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="Email address"
-                />
-              </label>
-              <label>
-                Message *
-                <textarea
-                  name="message"
-                  placeholder="Tell us what you need help with."
-                  rows={4}
-                  required
-                />
-              </label>
-              <label className="chat-consent">
-                <input name="contactConsent" type="checkbox" value="yes" required />
-                <span>
-                  I agree that AquaOasis-Web can contact me back about my
-                  message. See our <a href="/privacy-policy">Privacy Policy</a>.
-                </span>
-              </label>
-              <button className="chat-send-button" type="submit">
-                Send message
-              </button>
-              <a className="chat-call-link" href="tel:+447305410203">
-                Need us faster? Call 07305410203
-              </a>
-            </form>
-          )}
+          <div className="chat-body">
+            {submitted ? (
+              <div className="form" role="status">
+                <p className="notice ok">Thanks, your message is with us. We&apos;ll be back to you soon.</p>
+                <a className="btn btn-primary" href="tel:+447305410203">Call 07305410203</a>
+                <button className="btn btn-ghost" type="button" onClick={() => setSubmitted(false)}>Send another message</button>
+              </div>
+            ) : (
+              <form className="form" onSubmit={handleSubmit} data-aqua-form="Website chat" data-aqua-challenge-action="brand-enquiry">
+                <label className="field">First name<input name="firstName" autoComplete="given-name" required /></label>
+                <label className="field">Phone<input name="phone" type="tel" autoComplete="tel" /></label>
+                <label className="field">Email<input name="email" type="email" autoComplete="email" /></label>
+                <label className="field">Message<textarea name="message" rows={3} required placeholder="How can we help?" /></label>
+                <label className="check">
+                  <input name="contactConsent" type="checkbox" value="yes" required />
+                  <span>AquaOasis-Web can contact me about this message. See the <Link href="/privacy-policy">privacy policy</Link>.</span>
+                </label>
+                {error ? <p className="notice err" role="alert">{error}</p> : null}
+                <button className="btn btn-primary" type="submit" disabled={busy}>{busy ? "Sending…" : "Send message"}</button>
+              </form>
+            )}
+          </div>
         </section>
       ) : null}
-
       <button
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close chat" : "Open chat"}
@@ -146,12 +101,10 @@ export function ChatBot() {
         type="button"
         onClick={() => setIsOpen((current) => !current)}
       >
-        <span aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="img">
-            <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5A8.5 8.5 0 0 1 21 11v.5Z" />
-          </svg>
-        </span>
-        <span className="chat-label">Chat</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5A8.5 8.5 0 0 1 21 11v.5Z" />
+        </svg>
+        <span>Chat</span>
       </button>
     </div>
   );

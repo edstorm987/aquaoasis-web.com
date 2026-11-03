@@ -1,31 +1,40 @@
-import { MaintenanceFooter } from "@/components/MaintenanceFooter";
-import { MaintenanceHeader } from "@/components/MaintenanceHeader";
 import { SupportForm } from "@/components/SupportForm";
+import { Icon } from "@/components/site/Icon";
+import { PageHero } from "@/components/site/blocks";
+import { contact } from "@/lib/site";
+
+export const metadata = {
+  title: "Customer support",
+  description: "Help for existing AquaOasis-Web clients.",
+};
 
 export default function CustomerSupportPage() {
   return (
     <>
-      <MaintenanceHeader />
-      <main className="maintenance-page">
-        <section className="maintenance-shell contact-page" aria-labelledby="support-title">
-          <div className="container contact-grid">
-            <div className="maintenance-copy reveal">
-              <p className="eyebrow">Customer support</p>
-              <h1 id="support-title">Need help with AquaOasis-Web?</h1>
-              <p>
-                If you need support, have a question, or want an update, send
-                us the details and we will get back to you directly.
-              </p>
-              <div className="contact-details">
-                <a href="tel:+447305410203">07305410203</a>
-                <a href="mailto:aquaoasis-web@gmail.com">aquaoasis-web@gmail.com</a>
-              </div>
+      <PageHero
+        kicker="Customer support"
+        title="Need a hand with something?"
+        lede="Questions, changes or an update on your project. Send us the details and we'll get back to you directly."
+        crumbs={[{ href: "/customer-support", label: "Support" }]}
+      />
+      <section className="section">
+        <div className="wrap contact-grid">
+          <div>
+            <h2 className="h-md">Prefer to talk?</h2>
+            <div className="contact-lines">
+              <a className="contact-line" href={contact.phoneHref}>
+                <span className="icon-tile accent-aqua"><Icon name="phone" /></span>
+                <span>{contact.phone}<small>Call or WhatsApp</small></span>
+              </a>
+              <a className="contact-line" href={contact.emailHref}>
+                <span className="icon-tile accent-violet"><Icon name="mail" /></span>
+                <span>{contact.email}<small>We reply within a working day</small></span>
+              </a>
             </div>
-            <SupportForm />
           </div>
-        </section>
-      </main>
-      <MaintenanceFooter />
+          <SupportForm />
+        </div>
+      </section>
     </>
   );
 }
